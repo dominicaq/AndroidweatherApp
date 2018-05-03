@@ -8,43 +8,32 @@
 
     <TextView
         android:id="@+id/weatherNumber"
-        android:layout_width="151dp"
+        android:layout_width="173dp"
         android:layout_height="115dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="60dp"
-        android:text="86°"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/_86"
         android:textSize="100sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <SearchView
-        android:id="@+id/searchBar"
-        android:layout_width="356dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/weatherFeel"
-        android:layout_width="wrap_content"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="172dp"
-        android:text="Feels like 70° (F)"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="164dp"
+        android:text="@string/feels_like_70_f"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/weatherCity"
-        android:layout_width="109dp"
+        android:layout_width="147dp"
         android:layout_height="35dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="56dp"
         android:text="Rocklin, CA"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,5 +58,30 @@
         android:text="Celsius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="79dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
+        android:onClick="getWeather"
+        android:text="Search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/searchBar"
+        android:layout_width="269dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter City or ZIP"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
