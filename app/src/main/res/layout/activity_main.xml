@@ -11,7 +11,7 @@
         android:layout_width="151dp"
         android:layout_height="115dp"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="56dp"
         android:text="86°"
         android:textSize="100sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,8 +21,8 @@
         android:id="@+id/weatherFeel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="172dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="168dp"
         android:text="Feels like 70° (F)"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,14 +61,14 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="80dp"
+        android:layout_width="79dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="456dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
         android:onClick="getWeather"
         android:text="Search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/searchBar"
