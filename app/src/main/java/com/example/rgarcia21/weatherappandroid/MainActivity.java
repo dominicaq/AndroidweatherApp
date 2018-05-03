@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.SearchView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -53,5 +53,10 @@ public void getWeather(View v)
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         feels.setText("Feels like: " + a.feelF + "° (F)");
+
+        //Icon code
+        int id = getResources().getIdentifier("yourpackagename:drawable/" + a.icon, null, null);
+        ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
+        weatherIcon.setImageResource(id);
     }
 }
