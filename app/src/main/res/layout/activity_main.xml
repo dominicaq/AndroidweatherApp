@@ -8,10 +8,10 @@
 
     <TextView
         android:id="@+id/weatherNumber"
-        android:layout_width="151dp"
+        android:layout_width="173dp"
         android:layout_height="115dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="52dp"
         android:text="@string/_86"
         android:textSize="100sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,10 +19,10 @@
 
     <TextView
         android:id="@+id/weatherFeel"
-        android:layout_width="wrap_content"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="164dp"
         android:text="@string/feels_like_70_f"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,10 +30,10 @@
 
     <TextView
         android:id="@+id/weatherCity"
-        android:layout_width="109dp"
+        android:layout_width="147dp"
         android:layout_height="35dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="56dp"
         android:text="Rocklin, CA"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,6 @@
         android:ems="10"
         android:hint="Enter City or ZIP"
         android:inputType="textPostalAddress"
-        android:text="Enter City or ZIP"
         app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
