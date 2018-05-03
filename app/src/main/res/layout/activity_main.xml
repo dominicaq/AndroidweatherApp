@@ -7,30 +7,67 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/weatherNumber"
+        android:layout_width="151dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="60dp"
+        android:text="86°"
+        android:textSize="100sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="167dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="16dp" />
+    <SearchView
+        android:id="@+id/searchBar"
+        android:layout_width="356dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/weatherFeel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        tools:layout_editor_absoluteX="198dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="172dp"
+        android:text="Feels like 70° (F)"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/weatherCity"
+        android:layout_width="109dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="60dp"
+        android:text="Rocklin, CA"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/weatherImage"
+        android:layout_width="115dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/placeholdersun" />
+
+    <Switch
+        android:id="@+id/userSwitchCF"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Celsius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
