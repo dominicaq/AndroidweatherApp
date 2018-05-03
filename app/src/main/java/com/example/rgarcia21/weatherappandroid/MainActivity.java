@@ -28,7 +28,7 @@ public void getWeather(View v)
     EditText location = (EditText) findViewById(R.id.searchBar);
     String dataType = location.toString();
     String state = "";
-
+    /*
     try {
         Integer.parseInt(dataType);
         }
@@ -40,6 +40,7 @@ public void getWeather(View v)
             state = d.substring(d.indexOf(','), d.length());
             state = state.replaceAll(" ", "");
         }
+        */
 
         Weather b = new Weather(dataType, state);
         Conditions a = b.getCond();
