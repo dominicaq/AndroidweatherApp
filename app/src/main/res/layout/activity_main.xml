@@ -37,7 +37,7 @@
 
     <TextView
         android:id="@+id/weatherCity"
-        android:layout_width="259dp"
+        android:layout_width="244dp"
         android:layout_height="29dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="68dp"

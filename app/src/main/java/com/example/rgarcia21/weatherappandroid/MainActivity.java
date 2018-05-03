@@ -93,9 +93,9 @@ public void getWeather(View v)
         weatherIcon.setImageResource(id);
 
         TextView wind = (TextView) findViewById(R.id.weatherWind);
-        feels.setText(a.wind + "mph");
+        wind.setText(a.wind + "mph");
 
         TextView rain = (TextView) findViewById(R.id.weatherRain);
-        feels.setText(a.rain + "%");
+        rain.setText(a.rain + "%");
     }
 }
