@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WeatherAppAndroid</string>
+    <string name="_86">86°</string>
+    <string name="feels_like_70_f">Feels like 70° (F)</string>
 </resources>
