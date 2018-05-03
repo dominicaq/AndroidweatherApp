@@ -48,7 +48,7 @@ public class Weather {
             String feelF = jse.getAsJsonObject().get("current_observation").getAsJsonObject().get("feelslike_f").getAsString();
             String condition = jse.getAsJsonObject().get("current_observation").getAsJsonObject().get("weather").getAsString();
             String wind = jse.getAsJsonObject().get("current_observation").getAsJsonObject().get("wind_mph").getAsString();
-            String rain = jse.getAsJsonObject().get("current_observation").getAsJsonObject().get("precip_today_in").getAsString();
+            String rain = jse.getAsJsonObject().get("current_observation").getAsJsonObject().get("precip_1hr_metric").getAsString();
             String icon = jse.getAsJsonObject().get("current_observation").getAsJsonObject().get("icon").getAsString();
             String inputState = jse.getAsJsonObject().get("current_observation").getAsJsonObject().get("display_location").getAsJsonObject().get("state").getAsString();
             String title = "title";

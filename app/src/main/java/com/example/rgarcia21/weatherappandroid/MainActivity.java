@@ -58,5 +58,11 @@ public void getWeather(View v)
         int id = getResources().getIdentifier("drawable/" + a.icon, null, null);
         ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
         weatherIcon.setImageResource(id);
+
+        TextView wind = (TextView) findViewById(R.id.weatherWind);
+        feels.setText(a.wind + "mph");
+
+        TextView rain = (TextView) findViewById(R.id.weatherRain);
+        feels.setText(a.rain + "%");
     }
 }
