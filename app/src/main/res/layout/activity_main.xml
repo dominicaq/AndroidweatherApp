@@ -8,46 +8,49 @@
 
     <TextView
         android:id="@+id/weatherNumber"
-        android:layout_width="173dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="104dp"
+        android:layout_width="203dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="52dp"
         android:text="@string/_86"
+        android:textAlignment="center"
         android:textSize="100sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/weatherFeel"
-        android:layout_width="165dp"
+        android:layout_width="217dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="160dp"
         android:text="@string/feels_like_70_f"
+        android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/weatherCity"
-        android:layout_width="147dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="259dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="52dp"
         android:text="Rocklin, CA"
+        android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/weatherImage"
-        android:layout_width="115dp"
+        android:layout_width="106dp"
         android:layout_height="100dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="84dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/placeholdersun" />
+        app:srcCompat="@drawable/clear" />
 
     <Switch
         android:id="@+id/userSwitchCF"

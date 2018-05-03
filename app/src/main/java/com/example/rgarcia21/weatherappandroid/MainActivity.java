@@ -55,7 +55,7 @@ public void getWeather(View v)
         feels.setText("Feels like: " + a.feelF + "° (F)");
 
         //Icon code
-        int id = getResources().getIdentifier("yourpackagename:drawable/" + a.icon, null, null);
+        int id = getResources().getIdentifier("drawable/" + a.icon, null, null);
         ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
         weatherIcon.setImageResource(id);
     }
