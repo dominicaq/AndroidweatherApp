@@ -146,12 +146,12 @@ public class Weather {
         String wundergroundRequest;
         if(zipcode!= null) {
 
-            wundergroundRequest = "http://api.wunderground.com/api/a571d3aa8d465016/conditions/forecast10day/q/" + zipcode + ".json";
+            wundergroundRequest = "http://api.wunderground.com/api/"+BuildConfig.ApiKey+"/conditions/forecast10day/q/" + zipcode + ".json";
         }
 
         else{
 
-            wundergroundRequest = "http://api.wunderground.com/api/1655f919bbcd29ed/conditions/forecast10day/q/" + state + "/" + city + ".json";
+            wundergroundRequest = "http://api.wunderground.com/api/"+BuildConfig.ApiKey+"/conditions/forecast10day/q/" + state + "/" + city + ".json";
         }
 
         try {
