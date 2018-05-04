@@ -72,9 +72,11 @@ public void getWeather(View v)
         Weather b = new Weather(dataType, state);
         Conditions a = b.getCond();
 
-    // Set the text GUI elements
+    // Set the text of GUI elements
+        String weatherNumberConvert = a.tempF;
+        int weatherConvertOutput = Integer.parseInt(weatherNumberConvert);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
-        temp.setText(a.tempF + "°");
+        temp.setText(weatherConvertOutput + "°");
 
         TextView city = (TextView) findViewById(R.id.weatherCity);
         city.setText(a.city + ", " + a.inputState);
@@ -82,15 +84,15 @@ public void getWeather(View v)
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         feels.setText("Feels like: " + a.feelF + "° (F)");
 
-        //Icon code
-        int id = getResources().getIdentifier("drawable/" + a.icon, null, null);
-        ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
-        weatherIcon.setImageResource(id);
-
         TextView wind = (TextView) findViewById(R.id.weatherWind);
         wind.setText(a.wind + "mph");
 
         TextView rain = (TextView) findViewById(R.id.weatherRain);
         rain.setText(a.rain + "%");
+
+        //Icon code(doesn't work)
+        int id = getResources().getIdentifier("drawable/" + a.icon, null, null);
+        ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
+        weatherIcon.setImageResource(id);
     }
 }
