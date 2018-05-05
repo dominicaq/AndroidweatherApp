@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         rain.setText(a.rain + "%");
 
         //Icon code
-        String PACKAGE_NAME = getApplicationContext().getPackageName();
+        String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
         ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
         int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ a.icon , null, null);
         weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
@@ -113,6 +113,15 @@ public class MainActivity extends AppCompatActivity {
         title2.setText(titleArrayList[2]);
         TextView title3 = (TextView) findViewById(R.id.forecastTitle2);
         title3.setText(titleArrayList[4]);
+
+        String tempCollector = a.fct;
+        String [] output3 = tempCollector.split("( )");
+        TextView temp1 = (TextView) findViewById(R.id.forecastTemp);
+        temp1.setText(output3[0] + "°");
+        TextView temp2 = (TextView) findViewById(R.id.forecastTemp1);
+        temp2.setText(output3[1] + "°");
+        TextView temp3 = (TextView) findViewById(R.id.forecastTemp2);
+        temp3.setText(output3[2] + "°");
 
         String iconCollector = a.icon2;
         String [] inputAsArray2 = iconCollector.split("( )");
