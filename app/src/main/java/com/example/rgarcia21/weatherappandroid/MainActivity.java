@@ -73,12 +73,10 @@ public void getWeather(View v)
         Conditions a = b.getCond();
 
     // Set the text of GUI elements
-        /*
-        String weatherNumberConvert = a.tempF;
-        int weatherConvertOutput = Integer.parseInt(weatherNumberConvert);
-        */
+        String weatherDecimal = a.tempF;
+        int weatherNumber = (int) Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
-        temp.setText(a.tempF + "°");
+        temp.setText(weatherNumber + "°");
 
         TextView city = (TextView) findViewById(R.id.weatherCity);
         city.setText(a.city + ", " + a.inputState);
