@@ -13,11 +13,11 @@
         android:id="@+id/weatherNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="88dp"
-        android:layout_marginStart="88dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="50dp"
         android:text="@string/_86"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textColor="@android:color/white"
         android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,11 +30,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="160dp"
         android:text="@string/feels_like_70_f"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,8 +43,8 @@
         android:id="@+id/weatherCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:layout_marginStart="68dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
         android:text="Rocklin, CA"
         android:textAlignment="center"
@@ -56,9 +56,9 @@
 
     <ImageView
         android:id="@+id/weatherImage"
-        android:layout_width="79dp"
-        android:layout_height="77dp"
-        android:layout_marginEnd="70dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="55dp"
         android:layout_marginTop="75dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -155,5 +155,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/weatherCondition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="135dp"
+        android:text="Clear"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

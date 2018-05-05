@@ -87,8 +87,11 @@ public class MainActivity extends AppCompatActivity {
         TextView city = (TextView) findViewById(R.id.weatherCity);
         city.setText(a.city + ", " + a.inputState);
 
+        TextView cond = (TextView) findViewById(R.id.weatherCondition);
+        cond.setText(a.condition);
+
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
-        feels.setText("Feels like: " + a.feelF + "° (F)");
+        feels.setText("Feels like " + a.feelF + "° (F)");
 
         TextView wind = (TextView) findViewById(R.id.weatherWind);
         wind.setText(a.wind + "mph");
