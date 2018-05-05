@@ -2,12 +2,7 @@ package com.example.rgarcia21.weatherappandroid;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import java.util.ArrayList;
-import java.util.List;
-//
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -16,7 +11,6 @@ import java.net.URL;
 public class Weather {
     private String zipcode;
     private JsonElement jse;
-    private JsonElement jse1;
     private String city;
     private String state;
 

@@ -99,12 +99,34 @@ public class MainActivity extends AppCompatActivity {
         TextView rain = (TextView) findViewById(R.id.weatherRain);
         rain.setText(a.rain + "%");
 
-        //Icon code(doesn't work)
-        String fnm = a.icon; //  this is image file name
+        //Icon code
         String PACKAGE_NAME = getApplicationContext().getPackageName();
         ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
-        int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+fnm , null, null);
-        //Bitmap bitmap = BitmapFactory.decodeResource(getResources(),imgId);
+        int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ a.icon , null, null);
         weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
+
+        String titleList = a.title;
+        String[] titleArrayList = titleList.split(" ");
+        TextView title1 = (TextView) findViewById(R.id.forecastTitle);
+        title1.setText(titleArrayList[0]);
+        TextView title2 = (TextView) findViewById(R.id.forecastTitle1);
+        title2.setText(titleArrayList[2]);
+        TextView title3 = (TextView) findViewById(R.id.forecastTitle2);
+        title3.setText(titleArrayList[4]);
+
+        String iconCollector = a.icon2;
+        String [] inputAsArray2 = iconCollector.split("( )");
+
+        ImageView forecastImg = (ImageView) findViewById(R.id.forecastIcon);
+        int imgId2 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[0] , null, null);
+        forecastImg.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId2));
+
+        ImageView forecastImg1 = (ImageView) findViewById(R.id.forecastIcon1);
+        int imgId3 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[1] , null, null);
+        forecastImg1.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId3));
+
+        ImageView forecastImg2 = (ImageView) findViewById(R.id.forecastIcon2);
+        int imgId4 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[2] , null, null);
+        forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId4));
     }
 }
