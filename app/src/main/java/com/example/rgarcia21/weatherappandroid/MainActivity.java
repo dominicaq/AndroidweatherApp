@@ -1,6 +1,7 @@
 package com.example.rgarcia21.weatherappandroid;
 
 import android.app.Activity;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.StrictMode;
@@ -96,8 +97,11 @@ public class MainActivity extends AppCompatActivity {
         rain.setText(a.rain + "%");
 
         //Icon code(doesn't work)
-        int id = getResources().getIdentifier("drawable/" + a.icon, null, null);
+        String fnm = a.icon; //  this is image file name
+        String PACKAGE_NAME = getApplicationContext().getPackageName();
         ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
-        weatherIcon.setImageResource(id);
+        int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+fnm , null, null);
+        //Bitmap bitmap = BitmapFactory.decodeResource(getResources(),imgId);
+        weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
     }
 }
