@@ -9,6 +9,17 @@
     android:fitsSystemWindows="true"
     >
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="332dp"
+        android:layout_marginStart="112dp"
+        android:onClick="convertActionF"
+        android:text="F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/bar2"
         android:layout_width="90dp"
@@ -281,8 +292,8 @@
         android:id="@+id/button"
         android:layout_width="55dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="340dp"
-        android:layout_marginStart="160dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="68dp"
         android:background="@drawable/radaricon"
         android:onClick="radarButton"
         android:visibility="visible"
@@ -298,5 +309,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/whitebar" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="332dp"
+        android:layout_marginStart="164dp"
+        android:onClick="convertActionC"
+        android:text="C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
