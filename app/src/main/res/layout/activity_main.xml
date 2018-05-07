@@ -122,11 +122,12 @@
         app:srcCompat="@drawable/clear" />
 
     <Switch
-        android:id="@+id/userSwitchCF"
+        android:id="@+id/weatherSwitchCF"
         android:layout_width="98dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="336dp"
         android:layout_marginEnd="116dp"
+        android:splitTrack="false"
         android:text="Celsius"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -145,7 +146,7 @@
 
     <EditText
         android:id="@+id/searchBar"
-        android:layout_width="298dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
@@ -209,6 +210,7 @@
         android:layout_marginEnd="112dp"
         android:layout_marginStart="112dp"
         android:background="@drawable/wundergroundlogo"
+        android:onClick="wundergroundCredit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -275,5 +277,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/clear" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginBottom="72dp"
+        android:layout_marginStart="24dp"
+        android:text="Map"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,8 +1,10 @@
 package com.example.rgarcia21.weatherappandroid;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -52,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
         }
         win.setAttributes(winParams);
     }
-//
-
+    //Store values outside method
+    String inputCity;
+    String inputState;
     public void getWeather(View v) {
         // Disable threading. We'll fix this later.
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
         // Get the text from the input field
         EditText location = (EditText) findViewById(R.id.searchBar);
         String dataType = location.getText().toString();
@@ -77,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
         Weather b = new Weather(dataType, state);
         Conditions a = b.getCond();
+
+        //Set coordinates
+        inputCity = dataType;
+        inputState = state;
 
         // Set the text of GUI elements
         String weatherDecimal = a.tempF;
@@ -138,4 +144,15 @@ public class MainActivity extends AppCompatActivity {
         int imgId4 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[2] , null, null);
         forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId4));
     }
+
+    public void wundergroundCredit(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.wunderground.com/"));
+        startActivity(browserIntent);
+    }
+
+    public void radarButton(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ inputState +"/" + inputCity + ".gif?num=6&delay=50&interval=30"));
+        startActivity(browserIntent);
+    }
 }
+//API KEY: 1655f919bbcd29ed
