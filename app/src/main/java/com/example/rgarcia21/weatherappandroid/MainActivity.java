@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     //Store values outside method
     String inputCity;
     String inputState;
+    int inputWeatherF;
+    
     public void getWeather(View v) {
         // Disable threading. We'll fix this later.
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -79,10 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
         Weather b = new Weather(dataType, state);
         Conditions a = b.getCond();
-
-        //Set coordinates
-        inputCity = dataType;
-        inputState = state;
 
         // Set the text of GUI elements
         String weatherDecimal = a.tempF;
@@ -143,6 +141,22 @@ public class MainActivity extends AppCompatActivity {
         ImageView forecastImg2 = (ImageView) findViewById(R.id.forecastIcon2);
         int imgId4 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[2] , null, null);
         forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId4));
+
+        //Gather required information for buttons
+        inputCity = dataType;
+        inputState = state;
+        inputWeatherF = weatherNumber;
+    }
+
+    public void convertActionC(View convertC) {
+        TextView temp = (TextView) findViewById(R.id.weatherNumber);
+        int convertEquation = (inputWeatherF - 32) * 5/9;
+        temp.setText(convertEquation + "°");
+    }
+
+    public void convertActionF(View convertF) {
+        TextView temp = (TextView) findViewById(R.id.weatherNumber);
+        temp.setText(inputWeatherF + "°");
     }
 
     public void wundergroundCredit(View view) {
@@ -155,4 +169,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(browserIntent);
     }
 }
-//API KEY: 1655f919bbcd29ed
+//API KEY: 1655f919bbcd29ed (for when I need to check something), remove on completion
