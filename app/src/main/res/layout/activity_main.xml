@@ -71,15 +71,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:layout_marginEnd="152dp"
         android:layout_marginStart="8dp"
         android:text="@string/feels_like_70_f"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -137,48 +134,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/weatherRain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="336dp"
-        android:layout_marginStart="252dp"
-        android:text="5%"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/weatherWind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="340dp"
-        android:layout_marginEnd="50dp"
-        android:text="10mph"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="350dp"
-        android:layout_marginEnd="55dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/windicon" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="352dp"
-        android:layout_marginStart="248dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/raindrop" />
-
-    <TextView
         android:id="@+id/weatherCondition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -198,13 +153,10 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="176dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="4dp"
         android:onClick="convertActionC"
         android:text="C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toEndOf="@+id/button3" />
 
 </android.support.constraint.ConstraintLayout>
