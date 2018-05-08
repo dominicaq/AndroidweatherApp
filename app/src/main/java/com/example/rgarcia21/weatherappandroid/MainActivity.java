@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         String[] titleArrayList = titleList.split(" ");
         TextView title1 = (TextView) findViewById(R.id.forecastTitle);
         title1.setText(titleArrayList[0]);
-        TextView title2 = (TextView) findViewById(R.id.forecastTitle1);
+        TextView title2 = (TextView) findViewById(R.id.forecastTitle);
         title2.setText(titleArrayList[2]);
         TextView title3 = (TextView) findViewById(R.id.forecastTitle2);
         title3.setText(titleArrayList[4]);
@@ -176,6 +176,21 @@ public class MainActivity extends AppCompatActivity {
     public void radarButton(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ inputState +"/" + inputCity + ".gif?num=6&delay=50&interval=30"));
         startActivity(browserIntent);
+    }
+
+    public void openHome(View home) {
+        //call window2
+        setContentView(R.layout.activity_main);
+    }
+
+    public void openRadar(View rad) {
+        //call window2
+        setContentView(R.layout.radar_activity);
+    }
+
+    public void openForecast(View fct) {
+        //call window2
+        setContentView(R.layout.forecast_activity);
     }
 }
 //API KEY: 1655f919bbcd29ed (for when I need to check something), remove on completion

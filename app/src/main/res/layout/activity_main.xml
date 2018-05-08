@@ -31,62 +31,6 @@
         app:srcCompat="@drawable/whitebar" />
 
     <TextView
-        android:id="@+id/forecastTemp2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="28dp"
-        android:text="32"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forecastTemp1" />
-
-    <TextView
-        android:id="@+id/forecastTemp1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="28dp"
-        android:text="32"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forecastTemp" />
-
-    <TextView
-        android:id="@+id/forecastTemp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="335dp"
-        android:text="32"
-        android:textColor="@android:color/white"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/forecastIcon1"
-        android:layout_width="46dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forecastIcon"
-        app:srcCompat="@drawable/clear" />
-
-    <ImageView
-        android:id="@+id/forecastIcon2"
-        android:layout_width="46dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forecastIcon1"
-        app:srcCompat="@drawable/clear" />
-
-    <TextView
         android:id="@+id/weatherNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -239,61 +183,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/forecastTitle1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="20dp"
-        android:text="Monday"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forecastTitle" />
-
-    <TextView
-        android:id="@+id/forecastTitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="20dp"
-        android:text="Monday"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forecastTitle1"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/forecastTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="330dp"
-        android:text="Monday"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/forecastIcon"
-        android:layout_width="46dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="330dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/clear" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="55dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="80dp"
-        android:layout_marginStart="68dp"
+        android:layout_marginBottom="204dp"
+        android:layout_marginStart="192dp"
         android:background="@drawable/radaricon"
         android:onClick="radarButton"
         android:visibility="visible"
