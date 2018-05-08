@@ -58,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
     String inputCity;
     String inputState;
     String inputFeel;
+    String winds;
+    String rains;
+    String titleList;
+    String tempCollector;
+    String iconCollector;
     int inputWeatherF;
 
     public void getWeather(View v) {
@@ -98,56 +103,21 @@ public class MainActivity extends AppCompatActivity {
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         feels.setText("Feels like " + a.feelF + "° (F)");
 
-        TextView wind = (TextView) findViewById(R.id.weatherWind);
-        wind.setText(a.wind + "mph");
-
-        TextView rain = (TextView) findViewById(R.id.weatherRain);
-        rain.setText(a.rain + "%");
-
-        //Icon code
         String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
         ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
         int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ a.icon , null, null);
         weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
 
-        String titleList = a.title;
-        String[] titleArrayList = titleList.split(" ");
-        TextView title1 = (TextView) findViewById(R.id.forecastTitle);
-        title1.setText(titleArrayList[0]);
-        TextView title2 = (TextView) findViewById(R.id.forecastTitle);
-        title2.setText(titleArrayList[2]);
-        TextView title3 = (TextView) findViewById(R.id.forecastTitle2);
-        title3.setText(titleArrayList[4]);
-
-        String tempCollector = a.fct;
-        String [] output3 = tempCollector.split("( )");
-        TextView temp1 = (TextView) findViewById(R.id.forecastTemp);
-        temp1.setText(output3[0] + "°");
-        TextView temp2 = (TextView) findViewById(R.id.forecastTemp1);
-        temp2.setText(output3[1] + "°");
-        TextView temp3 = (TextView) findViewById(R.id.forecastTemp2);
-        temp3.setText(output3[2] + "°");
-
-        String iconCollector = a.icon2;
-        String [] inputAsArray2 = iconCollector.split("( )");
-
-        ImageView forecastImg = (ImageView) findViewById(R.id.forecastIcon);
-        int imgId2 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[0] , null, null);
-        forecastImg.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId2));
-
-        ImageView forecastImg1 = (ImageView) findViewById(R.id.forecastIcon1);
-        int imgId3 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[1] , null, null);
-        forecastImg1.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId3));
-
-        ImageView forecastImg2 = (ImageView) findViewById(R.id.forecastIcon2);
-        int imgId4 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[2] , null, null);
-        forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId4));
-
-        //Gather required information for buttons
+        //Gather required information for tabs
         inputCity = dataType;
         inputState = state;
         inputWeatherF = weatherNumber;
         inputFeel = a.feelF;
+        winds = a.wind;
+        rains = a.rain;
+        titleList = a.title;
+        tempCollector = a.fct;
+        iconCollector = a.icon2;
     }
 
     public void convertActionC(View convertC) {
@@ -178,19 +148,59 @@ public class MainActivity extends AppCompatActivity {
         startActivity(browserIntent);
     }
 
-    public void openHome(View home) {
-        //call window2
+    public void openHome(View v) {
+        //call home
         setContentView(R.layout.activity_main);
     }
 
-    public void openRadar(View rad) {
-        //call window2
+    public void openRadar(View v) {
+        //call radar window
         setContentView(R.layout.radar_activity);
     }
 
-    public void openForecast(View fct) {
-        //call window2
+    public void openForecast(View v) {
+        //call fct window
         setContentView(R.layout.forecast_activity);
+
+        TextView wind = (TextView) findViewById(R.id.weatherWind);
+        wind.setText(winds + "mph");
+
+        TextView rain = (TextView) findViewById(R.id.weatherRain);
+        rain.setText(rains + "%");
+
+        //Icon code
+        String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
+
+        //Titles
+        String[] titleArrayList = titleList.split(" ");
+        TextView title1 = (TextView) findViewById(R.id.forecastTitle);
+        title1.setText(titleArrayList[0]);
+        TextView title2 = (TextView) findViewById(R.id.forecastTitle);
+        title2.setText(titleArrayList[2]);
+        TextView title3 = (TextView) findViewById(R.id.forecastTitle2);
+        title3.setText(titleArrayList[4]);
+
+        String [] output3 = tempCollector.split("( )");
+        TextView temp1 = (TextView) findViewById(R.id.forecastTemp);
+        temp1.setText(output3[0] + "°");
+        TextView temp2 = (TextView) findViewById(R.id.forecastTemp1);
+        temp2.setText(output3[1] + "°");
+        TextView temp3 = (TextView) findViewById(R.id.forecastTemp2);
+        temp3.setText(output3[2] + "°");
+
+        String [] inputAsArray2 = iconCollector.split("( )");
+
+        ImageView forecastImg = (ImageView) findViewById(R.id.forecastIcon);
+        int imgId2 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[0] , null, null);
+        forecastImg.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId2));
+
+        ImageView forecastImg1 = (ImageView) findViewById(R.id.forecastIcon1);
+        int imgId3 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[1] , null, null);
+        forecastImg1.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId3));
+
+        ImageView forecastImg2 = (ImageView) findViewById(R.id.forecastIcon2);
+        int imgId4 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[2] , null, null);
+        forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId4));
     }
 }
 //API KEY: 1655f919bbcd29ed (for when I need to check something), remove on completion
