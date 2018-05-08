@@ -10,11 +10,44 @@
     >
 
     <Button
+        android:id="@+id/button9"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:onClick="openForecast"
+        android:text="Forecast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="45dp"
+        android:onClick="openRadar"
+        android:text="Radar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:onClick="openHome"
+        android:text="Home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/button3"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="332dp"
-        android:layout_marginStart="112dp"
+        android:layout_marginBottom="148dp"
+        android:layout_marginStart="164dp"
         android:onClick="convertActionF"
         android:text="F"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,30 +57,26 @@
         android:id="@+id/weatherNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="228dp"
         android:text="@string/_86"
         android:textAlignment="textStart"
         android:textColor="@android:color/white"
-        android:textSize="80sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="100sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/weatherFeel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginTop="580dp"
         android:text="@string/feels_like_70_f"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="15sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -56,12 +85,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="100dp"
         android:text="Rocklin, CA"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,8 +99,8 @@
         android:id="@+id/weatherImage"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginTop="508dp"
         android:contentDescription="@string/weather_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -107,8 +137,8 @@
         android:id="@+id/weatherRain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="335dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginBottom="336dp"
+        android:layout_marginStart="252dp"
         android:text="5%"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,8 +169,8 @@
         android:id="@+id/imageView4"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="350dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginBottom="352dp"
+        android:layout_marginStart="248dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/raindrop" />
@@ -151,11 +181,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="144dp"
         android:text="Clear"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -163,11 +194,11 @@
         android:id="@+id/button2"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="332dp"
-        android:layout_marginStart="164dp"
+        android:layout_marginBottom="148dp"
+        android:layout_marginStart="4dp"
         android:onClick="convertActionC"
         android:text="C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/button3" />
 
 </android.support.constraint.ConstraintLayout>
