@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     String titleList;
     String tempCollector;
     String iconCollector;
+    String dataType;
     int inputWeatherF;
 
     public void getWeather(View v) {
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
         // Get the text from the input field
         EditText location = (EditText) findViewById(R.id.searchBar);
-        String dataType = location.getText().toString();
+        dataType = location.getText().toString();
         String state = "";
 
         try {
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         int convertFeel = (Integer.parseInt(inputFeel) - 32) * 5/9;
-        feels.setText(convertFeel + "° (C)");
+        feels.setText("Feels like " + convertFeel + "° (C)");
     }
 
     public void convertActionF(View convertF) {
@@ -135,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         temp.setText(inputWeatherF + "°");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
-        feels.setText(inputFeel + "° (F)");
+        feels.setText("Feels like " + inputFeel + "° (F)");
     }
 
     public void wundergroundCredit(View view) {
@@ -151,6 +152,15 @@ public class MainActivity extends AppCompatActivity {
     public void openHome(View v) {
         //call home
         setContentView(R.layout.activity_main);
+        EditText location = (EditText) findViewById(R.id.searchBar);
+        if (dataType == "") {
+            location.setText("95648"); //Lincoln, CA
+        }else {
+            location.setText(dataType); //User input
+        }
+        Button startupData = (Button) findViewById(R.id.searchButton);
+        startupData.performClick();
+        location.setText("");
     }
 
     public void openRadar(View v) {
@@ -160,6 +170,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void openForecast(View v) {
         //call fct window
+        // Disable threading. We'll fix this later.
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         setContentView(R.layout.forecast_activity);
 
         TextView wind = (TextView) findViewById(R.id.weatherWind);
@@ -193,8 +207,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView forecastImg = (ImageView) findViewById(R.id.forecastIcon);
         int imgId2 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[0] , null, null);
         forecastImg.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId2));
-
-
+        
         ImageView forecastImg1 = (ImageView) findViewById(R.id.forecastIcon1);
         int imgId3 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[1] , null, null);
         forecastImg1.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId3));
