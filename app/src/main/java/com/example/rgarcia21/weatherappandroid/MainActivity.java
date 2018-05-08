@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         int imgId3 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[1] , null, null);
         forecastImg1.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId3));
 
-        ImageView forecastImg2 = (ImageView) findViewById(R.id.forecastIcon2);
+        ImageView forecastImg2 = (ImageView) findViewById(R.id.forecastIcon1);
         int imgId4 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[2] , null, null);
         forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId4));
 
