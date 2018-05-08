@@ -176,11 +176,13 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.forecast_activity);
 
+        /*
         TextView wind = (TextView) findViewById(R.id.weatherWind);
         wind.setText(winds + "mph");
 
         TextView rain = (TextView) findViewById(R.id.weatherRain);
         rain.setText(rains + "%");
+        */
 
         //Icon code
         String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
@@ -207,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView forecastImg = (ImageView) findViewById(R.id.forecastIcon);
         int imgId2 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[0] , null, null);
         forecastImg.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId2));
-        
+
         ImageView forecastImg1 = (ImageView) findViewById(R.id.forecastIcon1);
         int imgId3 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[1] , null, null);
         forecastImg1.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId3));
