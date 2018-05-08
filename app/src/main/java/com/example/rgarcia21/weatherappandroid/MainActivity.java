@@ -57,8 +57,9 @@ public class MainActivity extends AppCompatActivity {
     //Store values outside method
     String inputCity;
     String inputState;
+    String inputFeel;
     int inputWeatherF;
-    
+
     public void getWeather(View v) {
         // Disable threading. We'll fix this later.
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -146,17 +147,25 @@ public class MainActivity extends AppCompatActivity {
         inputCity = dataType;
         inputState = state;
         inputWeatherF = weatherNumber;
+        inputFeel = a.feelF;
     }
 
     public void convertActionC(View convertC) {
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
         int convertEquation = (inputWeatherF - 32) * 5/9;
         temp.setText(convertEquation + "°");
+
+        TextView feels = (TextView) findViewById(R.id.weatherFeel);
+        int convertFeel = (Integer.parseInt(inputFeel) - 32) * 5/9;
+        feels.setText(convertFeel + "° (C)");
     }
 
     public void convertActionF(View convertF) {
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
         temp.setText(inputWeatherF + "°");
+
+        TextView feels = (TextView) findViewById(R.id.weatherFeel);
+        feels.setText(inputFeel + "° (F)");
     }
 
     public void wundergroundCredit(View view) {
