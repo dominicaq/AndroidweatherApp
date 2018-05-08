@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         String[] titleArrayList = titleList.split(" ");
         TextView title1 = (TextView) findViewById(R.id.forecastTitle);
         title1.setText(titleArrayList[0]);
-        TextView title2 = (TextView) findViewById(R.id.forecastTitle);
+        TextView title2 = (TextView) findViewById(R.id.forecastTitle1);
         title2.setText(titleArrayList[2]);
         TextView title3 = (TextView) findViewById(R.id.forecastTitle2);
         title3.setText(titleArrayList[4]);
@@ -193,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView forecastImg = (ImageView) findViewById(R.id.forecastIcon);
         int imgId2 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[0] , null, null);
         forecastImg.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId2));
+
 
         ImageView forecastImg1 = (ImageView) findViewById(R.id.forecastIcon1);
         int imgId3 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[1] , null, null);
