@@ -28,33 +28,11 @@ public class MainActivity extends AppCompatActivity {
         Button startupData = (Button) findViewById(R.id.searchButton);
         startupData.performClick();
         location.setText("");
-
-        //Transparent code, testing
-        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
-            setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true);
-        }
-        if (Build.VERSION.SDK_INT >= 19) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false);
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
-        //
     }
 
-    //
-    public static void setWindowFlag(Activity activity, final int bits, boolean on) {
-        Window win = activity.getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        if (on) {
-            winParams.flags |= bits;
-        } else {
-            winParams.flags &= ~bits;
-        }
-        win.setAttributes(winParams);
-    }
     //Store values outside method
+    String radarCity;
+    String radarState;
     String inputCity;
     String inputState;
     String inputFeel;
@@ -110,8 +88,10 @@ public class MainActivity extends AppCompatActivity {
         weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
 
         //Gather required information for tabs
-        inputCity = dataType;
-        inputState = state;
+        radarCity = dataType;
+        radarState = state;
+        inputCity = a.city;
+        inputState = a.inputState;
         inputWeatherF = weatherNumber;
         inputFeel = a.feelF;
         winds = a.wind;
@@ -139,13 +119,9 @@ public class MainActivity extends AppCompatActivity {
         feels.setText("| Feels like " + inputFeel + "° (F)");
     }
 
-    public void wundergroundCredit(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.wunderground.com/"));
-        startActivity(browserIntent);
-    }
-
     public void radarButton(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ inputState +"/" + inputCity + ".gif?num=6&delay=50&interval=30"));
+        //holder for radar website
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ radarState +"/" + radarCity + ".gif?num=6&delay=50&interval=30"));
         startActivity(browserIntent);
     }
 
@@ -176,13 +152,14 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.forecast_activity);
 
-        /*
+        TextView city = (TextView) findViewById(R.id.weatherCity);
+        city.setText(inputCity + ", " + inputState);
+
         TextView wind = (TextView) findViewById(R.id.weatherWind);
         wind.setText(winds + "mph");
 
         TextView rain = (TextView) findViewById(R.id.weatherRain);
         rain.setText(rains + "%");
-        */
 
         //Icon code
         String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons

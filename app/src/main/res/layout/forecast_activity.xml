@@ -7,11 +7,37 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/weatherCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:text="Rocklin, CA"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="98dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/tabbackground"
+        android:cropToPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/weatherRain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginStart="324dp"
+        android:layout_marginTop="170dp"
         android:text="5%"
         android:textColor="@android:color/white"
         android:textSize="20sp"
@@ -22,8 +48,8 @@
         android:id="@+id/weatherWind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="172dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="170dp"
         android:text="10mph"
         android:textColor="@android:color/white"
         android:textSize="20sp"
@@ -44,8 +70,8 @@
         android:id="@+id/imageView2"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginStart="284dp"
+        android:layout_marginTop="156dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/raindrop" />
@@ -63,7 +89,7 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="144dp"
+        android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
