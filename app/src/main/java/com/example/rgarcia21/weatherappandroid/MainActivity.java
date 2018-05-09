@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         cond.setText(a.condition);
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
-        feels.setText("Feels like " + a.feelF + "° (F)");
+        feels.setText("| Feels like " + a.feelF + "° (F)");
 
         String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
         ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         int convertFeel = (Integer.parseInt(inputFeel) - 32) * 5/9;
-        feels.setText("Feels like " + convertFeel + "° (C)");
+        feels.setText("| Feels like " + convertFeel + "° (C)");
     }
 
     public void convertActionF(View convertF) {
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         temp.setText(inputWeatherF + "°");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
-        feels.setText("Feels like " + inputFeel + "° (F)");
+        feels.setText("| Feels like " + inputFeel + "° (F)");
     }
 
     public void wundergroundCredit(View view) {
