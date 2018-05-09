@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/backgroundpic3"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,9 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="120dp"
         android:text="5%"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,9 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="172dp"
         android:text="10mph"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,8 +53,9 @@
     <Button
         android:id="@+id/button6"
         android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/boxSelected"
         android:onClick="openForecast"
         android:text="Forecast"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,11 +63,12 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="133dp"
-        android:layout_height="wrap_content"
+        android:layout_width="144dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/box"
         android:onClick="openRadar"
         android:text="Radar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +82,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginTop="224dp"
         android:text="1"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -90,7 +94,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginTop="24dp"
         android:text="2"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
@@ -102,7 +106,7 @@
         android:layout_marginEnd="28dp"
         android:layout_marginTop="28dp"
         android:text="3"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -134,7 +138,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginTop="224dp"
         android:text="Monday1"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -146,7 +150,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginTop="24dp"
         android:text="Monday2"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
@@ -158,7 +162,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginTop="20dp"
         android:text="Monday3"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
@@ -176,8 +180,9 @@
     <Button
         android:id="@+id/button4"
         android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/box"
         android:onClick="openHome"
         android:text="Home"
         app:layout_constraintStart_toStartOf="parent"
