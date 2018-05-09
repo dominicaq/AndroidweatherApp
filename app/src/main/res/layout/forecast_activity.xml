@@ -55,7 +55,7 @@
         android:layout_width="120dp"
         android:layout_height="48dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/boxSelected"
+        android:background="@drawable/boxselected"
         android:onClick="openForecast"
         android:text="Forecast"
         app:layout_constraintEnd_toEndOf="parent"
