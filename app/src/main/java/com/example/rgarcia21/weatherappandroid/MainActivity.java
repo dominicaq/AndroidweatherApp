@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     String inputCond;
     String inputTempF;
     String inputBigicon;
-    int weatherNumber;
 
     private class GetWeatherInBackground extends AsyncTask<String, Void, Conditions>
     {
@@ -82,12 +81,15 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 location.setText(dataType);//Users input
             }
-            
-            Button setData = (Button) findViewById(R.id.homebt);
-            setData.performClick();
+
+            try {
+                Button setData = (Button) findViewById(R.id.homebt);
+                setData.performClick();
+            }catch (ErrorCatch e1) {
+                location.setText("Invalid ZIP");
+            }
         }
     }
-
 
     public void getWeather(View v) {
         EditText location = (EditText) findViewById(R.id.searchBar);
@@ -108,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void convertActionC(View v) {
+        String weatherDecimal = inputTempF;
+        int weatherNumber = (int) Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
         int convertEquation = (weatherNumber - 32) * 5/9;
         temp.setText(convertEquation + "°");
@@ -119,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void convertActionF(View v) {
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
-        temp.setText(weatherNumber + "°");
+        temp.setText(inputTempF + "°");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         feels.setText("| Feels like " + inputFeel + "° (F)");
@@ -130,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String weatherDecimal = inputTempF;
-        weatherNumber = (int) Double.parseDouble(weatherDecimal);
+        int weatherNumber = (int) Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
         temp.setText(weatherNumber + "°");
 
