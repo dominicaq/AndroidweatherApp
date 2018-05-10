@@ -212,11 +212,11 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView forecastImg3 = (ImageView) findViewById(R.id.forecastIcon3);
         int imgId5 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[3] , null, null);
-        forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId5));
+        forecastImg3.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId5));
 
         ImageView forecastImg4 = (ImageView) findViewById(R.id.forecastIcon4);
         int imgId6 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[4] , null, null);
-        forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId6));
+        forecastImg4.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId6));
     }
 }
 //API KEY: 1655f919bbcd29ed (for when I need to check something), remove on completion
