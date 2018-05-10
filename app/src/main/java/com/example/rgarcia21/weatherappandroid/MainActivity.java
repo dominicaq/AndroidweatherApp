@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -148,7 +149,8 @@ public class MainActivity extends AppCompatActivity {
         //call radar window
         WebView radar = (WebView) findViewById(R.id.radarimg);
         radar.getSettings().getJavaScriptEnabled();
-        radar.loadUrl("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ radarState +"/" + radarCity + ".gif?num=6&delay=50&interval=30");
+        radar.setWebViewClient(new WebViewClient());
+        radar.loadUrl("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ radarState + "/" + radarCity + ".gif?num=6&delay=50&interval=30");
 
         setContentView(R.layout.radar_activity);
     }
@@ -177,6 +179,10 @@ public class MainActivity extends AppCompatActivity {
         title2.setText(titleArrayList[2]);
         TextView title3 = (TextView) findViewById(R.id.forecastTitle2);
         title3.setText(titleArrayList[4]);
+        TextView title4 = (TextView) findViewById(R.id.forecastTitle3);
+        title2.setText(titleArrayList[6]);
+        TextView title5 = (TextView) findViewById(R.id.forecastTitle4);
+        title3.setText(titleArrayList[8]);
 
         String [] output3 = tempCollector.split("( )");
         TextView temp1 = (TextView) findViewById(R.id.forecastTemp);
@@ -185,6 +191,10 @@ public class MainActivity extends AppCompatActivity {
         temp2.setText(output3[1] + "°");
         TextView temp3 = (TextView) findViewById(R.id.forecastTemp2);
         temp3.setText(output3[2] + "°");
+        TextView temp4 = (TextView) findViewById(R.id.forecastTemp3);
+        temp3.setText(output3[3] + "°");
+        TextView temp5 = (TextView) findViewById(R.id.forecastTemp4);
+        temp3.setText(output3[4] + "°");
 
         String [] inputAsArray2 = iconCollector.split("( )");
 
@@ -199,6 +209,14 @@ public class MainActivity extends AppCompatActivity {
         ImageView forecastImg2 = (ImageView) findViewById(R.id.forecastIcon2);
         int imgId4 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[2] , null, null);
         forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId4));
+
+        ImageView forecastImg3 = (ImageView) findViewById(R.id.forecastIcon3);
+        int imgId5 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[3] , null, null);
+        forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId5));
+
+        ImageView forecastImg4 = (ImageView) findViewById(R.id.forecastIcon4);
+        int imgId6 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[4] , null, null);
+        forecastImg2.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId6));
     }
 }
 //API KEY: 1655f919bbcd29ed (for when I need to check something), remove on completion

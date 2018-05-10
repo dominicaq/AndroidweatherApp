@@ -2,9 +2,78 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/backgroundpic3"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/forecastTemp4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="15dp"
+        android:text="5"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+    <TextView
+        android:id="@+id/forecastTemp3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="15dp"
+        android:text="4"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+    <ImageView
+        android:id="@+id/forecastIcon3"
+        android:layout_width="46dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:srcCompat="@drawable/clear" />
+
+    <ImageView
+        android:id="@+id/forecastIcon4"
+        android:layout_width="46dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline10"
+        app:srcCompat="@drawable/clear" />
+
+    <TextView
+        android:id="@+id/forecastTitle4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="10dp"
+        android:text="Monday5"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+
+    <TextView
+        android:id="@+id/forecastTitle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="10dp"
+        android:text="Monday4"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <TextView
         android:id="@+id/weatherCity"
@@ -105,20 +174,20 @@
         android:id="@+id/forecastTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="15dp"
         android:text="1"
         android:textColor="@android:color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <TextView
         android:id="@+id/forecastTemp1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="15dp"
         android:text="2"
         android:textColor="@android:color/white"
         android:textSize="25sp"
@@ -129,8 +198,8 @@
         android:id="@+id/forecastTemp2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="15dp"
         android:text="3"
         android:textColor="@android:color/white"
         android:textSize="25sp"
@@ -142,9 +211,9 @@
         android:layout_width="46dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:srcCompat="@drawable/clear" />
 
     <ImageView
@@ -152,9 +221,9 @@
         android:layout_width="46dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forecastIcon"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
         app:srcCompat="@drawable/clear" />
 
     <TextView
@@ -162,7 +231,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="208dp"
         android:text="Monday1"
         android:textColor="@android:color/white"
         android:textSize="30sp"
@@ -174,7 +243,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:text="Monday2"
         android:textColor="@android:color/white"
         android:textSize="30sp"
@@ -186,7 +255,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Monday3"
         android:textColor="@android:color/white"
         android:textSize="30sp"
@@ -198,7 +267,7 @@
         android:layout_width="46dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:srcCompat="@drawable/clear" />
@@ -219,21 +288,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="263dp" />
+        app:layout_constraintGuide_begin="260dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="327dp" />
+        app:layout_constraintGuide_begin="320dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="202dp" />
+        app:layout_constraintGuide_begin="200dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline4"
@@ -247,5 +316,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="388dp" />
+        app:layout_constraintGuide_begin="380dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="440dp" />
 </android.support.constraint.ConstraintLayout>
