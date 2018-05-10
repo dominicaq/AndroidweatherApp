@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     public void getWeather(View v) {
         EditText location = (EditText) findViewById(R.id.searchBar);
         dataType = location.getText().toString();
+        int flag = 0;
 
         //Prevents splitting of a ZIP
         try {
@@ -102,11 +103,15 @@ public class MainActivity extends AppCompatActivity {
 
                 state = d.substring(d.indexOf(','), d.length());
                 state = state.replaceAll(" ", "");
+
+                flag = 1;
             }catch (ErrorCatch e1){
                 location.setText("Invalid ZIP");
             }
         }
-        new GetWeatherInBackground().execute(dataType, state);
+        if (flag == 0) {
+            new GetWeatherInBackground().execute(dataType, state);
+        }
     }
 
     public void convertActionC(View v) {
