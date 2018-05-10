@@ -180,9 +180,9 @@ public class MainActivity extends AppCompatActivity {
         TextView title3 = (TextView) findViewById(R.id.forecastTitle2);
         title3.setText(titleArrayList[4]);
         TextView title4 = (TextView) findViewById(R.id.forecastTitle3);
-        title2.setText(titleArrayList[6]);
+        title4.setText(titleArrayList[6]);
         TextView title5 = (TextView) findViewById(R.id.forecastTitle4);
-        title3.setText(titleArrayList[8]);
+        title5.setText(titleArrayList[8]);
 
         String [] output3 = tempCollector.split("( )");
         TextView temp1 = (TextView) findViewById(R.id.forecastTemp);
@@ -192,9 +192,9 @@ public class MainActivity extends AppCompatActivity {
         TextView temp3 = (TextView) findViewById(R.id.forecastTemp2);
         temp3.setText(output3[2] + "°");
         TextView temp4 = (TextView) findViewById(R.id.forecastTemp3);
-        temp3.setText(output3[3] + "°");
+        temp4.setText(output3[3] + "°");
         TextView temp5 = (TextView) findViewById(R.id.forecastTemp4);
-        temp3.setText(output3[4] + "°");
+        temp5.setText(output3[4] + "°");
 
         String [] inputAsArray2 = iconCollector.split("( )");
 
