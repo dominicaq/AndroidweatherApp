@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Conditions doInBackground(String... locations)
         {
-            Weather b = new Weather(locations[0],locations[1]);
+            Weather b = new Weather(locations[0],locations[1]); //State, City
             Conditions c = b.getCond();
 
             return c;
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Conditions a)
         {
-            //Gather required information for tabs so we don't refetch when clicking through data
+            //Gather required information for tabs so we don't refetch when clicking through them
             radarCity = dataType;
             radarState = state;
             inputCity = a.city;
@@ -165,6 +165,9 @@ public class MainActivity extends AppCompatActivity {
     public void openRadar(View v) {
         //call radar window
         setContentView(R.layout.radar_activity);
+
+        TextView city = (TextView) findViewById(R.id.weatherCity);
+        city.setText(inputCity + ", " + inputState);
 
         WebView radar = (WebView) findViewById(R.id.radarimg);
         radar.getSettings().getJavaScriptEnabled();
