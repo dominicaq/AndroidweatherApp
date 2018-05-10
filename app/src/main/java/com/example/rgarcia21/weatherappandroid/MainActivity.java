@@ -107,13 +107,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void convertActionC(View v) {
         String weatherDecimal = inputTempF;
-        double weatherNumber = Double.parseDouble(weatherDecimal);
+        int weatherNumber = (int) Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
-        double convertEquation = (weatherNumber - 32) * 5/9;
-        temp.setText(convertEquation + "°");
+        weatherNumber = (weatherNumber - 32) * 5/9;
+        temp.setText(weatherNumber + "°");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
-        int convertFeel = (Integer.parseInt(inputFeel) - 32) * 5/9;
+        int convertFeel = (int) Double.parseDouble(inputFeel);
+        convertFeel = (convertFeel - 32) * 5/9;
         feels.setText("| Feels like " + convertFeel + "° (C)");
     }
 
