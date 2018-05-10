@@ -56,14 +56,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/fBut"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="120dp"
-        android:layout_marginStart="156dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginStart="236dp"
+        android:background="@drawable/box"
         android:onClick="convertActionF"
-        android:text="F"
-        android:textSize="20sp"
+        android:text="F°"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -87,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginStart="8dp"
-        android:text="| Feels like 70° (F)"
+        android:text="Feels like 70° (F)"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="20sp"
@@ -156,22 +159,38 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginStart="10dp"
-        android:text="Clear"
+        android:text="Clear |"
         android:textColor="@android:color/white"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/cBut"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="70dp"
         android:layout_marginStart="4dp"
+        android:background="@drawable/box"
         android:onClick="convertActionC"
-        android:text="C"
-        android:textSize="20sp"
+        android:text="C°"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
+        app:layout_constraintStart_toEndOf="@+id/fBut" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65dp"
+        android:layout_marginEnd="89dp"
+        android:text="|"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

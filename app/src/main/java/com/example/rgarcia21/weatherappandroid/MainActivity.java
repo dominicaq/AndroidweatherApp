@@ -106,6 +106,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void convertActionC(View v) {
+        Button cButton = (Button) findViewById(R.id.cBut);
+        cButton.setTextColor(Color.GRAY);
+
+        Button fButton = (Button) findViewById(R.id.fBut);
+        fButton.setTextColor(Color.WHITE);
+
         String weatherDecimal = inputTempF;
         int weatherNumber = (int) Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
@@ -115,17 +121,23 @@ public class MainActivity extends AppCompatActivity {
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         int convertFeel = (int) Double.parseDouble(inputFeel);
         convertFeel = (convertFeel - 32) * 5/9;
-        feels.setText("| Feels like " + convertFeel + "° (C)");
+        feels.setText("Feels like " + convertFeel + "° (C)");
     }
 
     public void convertActionF(View v) {
+        Button cButton = (Button) findViewById(R.id.cBut);
+        cButton.setTextColor(Color.WHITE);
+
+        Button fButton = (Button) findViewById(R.id.fBut);
+        fButton.setTextColor(Color.GRAY);
+
         String weatherDecimal = inputTempF;
         int weatherNumber = (int) Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
         temp.setText(weatherNumber + "°");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
-        feels.setText("| Feels like " + inputFeel + "° (F)");
+        feels.setText("Feels like " + inputFeel + "° (F)");
     }
 
     public void openHome(View v) {
@@ -141,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
         city.setText(inputCity + ", " + inputState);
 
         TextView cond = (TextView) findViewById(R.id.weatherCondition);
-        cond.setText(inputCond);
+        cond.setText(inputCond + " |");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         feels.setText("| Feels like " + inputFeel + "° (F)");
