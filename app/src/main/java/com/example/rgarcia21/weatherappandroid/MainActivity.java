@@ -139,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void openHome(View v) {
         //call home
+        setContentView(R.layout.activity_main);
+        
         String weatherDecimal = inputTempF;
         weatherNumber = (int) Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
@@ -157,22 +159,21 @@ public class MainActivity extends AppCompatActivity {
         ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
         int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputBigicon , null, null);
         weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
-
-        setContentView(R.layout.activity_main);
     }
 
     public void openRadar(View v) {
         //call radar window (CRASHES)
+        setContentView(R.layout.radar_activity);
+
         WebView radar = (WebView) findViewById(R.id.radarimg);
         radar.getSettings().getJavaScriptEnabled();
         radar.setWebViewClient(new WebViewClient());
         radar.loadUrl("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ radarState + "/" + radarCity + ".gif?num=6&delay=50&interval=30");
-
-        setContentView(R.layout.radar_activity);
     }
 
     public void openForecast(View v) {
         //call fct window
+        setContentView(R.layout.forecast_activity);
 
         TextView city = (TextView) findViewById(R.id.weatherCity);
         city.setText(inputCity + ", " + inputState);
@@ -232,8 +233,6 @@ public class MainActivity extends AppCompatActivity {
         ImageView forecastImg4 = (ImageView) findViewById(R.id.forecastIcon4);
         int imgId6 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[4] , null, null);
         forecastImg4.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId6));
-
-        setContentView(R.layout.forecast_activity);
     }
 }
 //API KEY: 1655f919bbcd29ed (for when I need to check something), remove on completion
