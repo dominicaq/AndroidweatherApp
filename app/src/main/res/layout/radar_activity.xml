@@ -2,14 +2,27 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/backgroundpic3"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="98dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/tabbackground"
+        android:cropToPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/box"
         android:onClick="openForecast"
         android:text="Forecast"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,11 +30,12 @@
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="133dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/boxselected"
         android:onClick="openRadar"
         android:text="Radar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,10 +45,22 @@
     <Button
         android:id="@+id/button8"
         android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/box"
         android:onClick="openHome"
         android:text="Home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <WebView
+        android:id="@+id/radarimg"
+        android:layout_width="368dp"
+        android:layout_height="444dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
 </android.support.constraint.ConstraintLayout>

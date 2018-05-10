@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,29 +31,73 @@ public class MainActivity extends AppCompatActivity {
         startupData.performClick();
         location.setText("");
     }
-
     //Store values outside method
     String radarCity;
     String radarState;
     String inputCity;
     String inputState;
     String inputFeel;
-    String winds;
-    String rains;
+    String inputWind;
+    String inputRain;
     String titleList;
     String tempCollector;
     String iconCollector;
     String dataType;
-    int inputWeatherF;
+    String state;
+    int weatherNumber;
+
+    private class GetWeatherInBackground extends AsyncTask<String, Void, Conditions>
+    {
+        @Override
+        protected Conditions doInBackground(String... locations)
+        {
+            Weather b = new Weather(locations[0]);
+            Conditions c = b.getCond();
+
+            return c;
+        }
+
+        @Override
+        protected void onPostExecute(Conditions a)
+        {
+            //Gather required information for tabs (first execute only)
+            radarCity = dataType;
+            radarState = state;
+            inputCity = a.city;
+            inputState = a.inputState;
+            inputFeel = a.feelF;
+            inputWind = a.wind;
+            inputRain = a.rain;
+            titleList = a.title;
+            tempCollector = a.fct;
+            iconCollector = a.icon2;
+
+            //Update Screen data
+            String weatherDecimal = a.tempF;
+            weatherNumber = (int) Double.parseDouble(weatherDecimal);
+            TextView temp = (TextView) findViewById(R.id.weatherNumber);
+            temp.setText(weatherNumber + "°");
+
+            TextView city = (TextView) findViewById(R.id.weatherCity);
+            city.setText(a.city + ", " + a.inputState);
+
+            TextView cond = (TextView) findViewById(R.id.weatherCondition);
+            cond.setText(a.condition);
+
+            TextView feels = (TextView) findViewById(R.id.weatherFeel);
+            feels.setText("| Feels like " + a.feelF + "° (F)");
+
+            String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
+            ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
+            int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ a.icon , null, null);
+            weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
+        }
+    }
+
 
     public void getWeather(View v) {
-        // Disable threading. We'll fix this later.
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        // Get the text from the input field
         EditText location = (EditText) findViewById(R.id.searchBar);
         dataType = location.getText().toString();
-        String state = "";
 
         try {
             Integer.parseInt(dataType);
@@ -63,47 +109,12 @@ public class MainActivity extends AppCompatActivity {
             state = d.substring(d.indexOf(','), d.length());
             state = state.replaceAll(" ", "");
         }
-
-        Weather b = new Weather(dataType, state);
-        Conditions a = b.getCond();
-
-        // Set the text of GUI elements
-        String weatherDecimal = a.tempF;
-        int weatherNumber = (int) Double.parseDouble(weatherDecimal);
-        TextView temp = (TextView) findViewById(R.id.weatherNumber);
-        temp.setText(weatherNumber + "°");
-
-        TextView city = (TextView) findViewById(R.id.weatherCity);
-        city.setText(a.city + ", " + a.inputState);
-
-        TextView cond = (TextView) findViewById(R.id.weatherCondition);
-        cond.setText(a.condition);
-
-        TextView feels = (TextView) findViewById(R.id.weatherFeel);
-        feels.setText("| Feels like " + a.feelF + "° (F)");
-
-        String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
-        ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
-        int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ a.icon , null, null);
-        weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
-
-        //Gather required information for tabs
-        radarCity = dataType;
-        radarState = state;
-        inputCity = a.city;
-        inputState = a.inputState;
-        inputWeatherF = weatherNumber;
-        inputFeel = a.feelF;
-        winds = a.wind;
-        rains = a.rain;
-        titleList = a.title;
-        tempCollector = a.fct;
-        iconCollector = a.icon2;
+        new GetWeatherInBackground().execute(dataType, state);
     }
 
     public void convertActionC(View convertC) {
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
-        int convertEquation = (inputWeatherF - 32) * 5/9;
+        int convertEquation = (weatherNumber - 32) * 5/9;
         temp.setText(convertEquation + "°");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
@@ -113,16 +124,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void convertActionF(View convertF) {
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
-        temp.setText(inputWeatherF + "°");
+        temp.setText(weatherNumber + "°");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         feels.setText("| Feels like " + inputFeel + "° (F)");
-    }
-
-    public void radarButton(View view) {
-        //holder for radar website
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ radarState +"/" + radarCity + ".gif?num=6&delay=50&interval=30"));
-        startActivity(browserIntent);
     }
 
     public void openHome(View v) {
@@ -141,25 +146,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void openRadar(View v) {
         //call radar window
+        WebView radar = (WebView) findViewById(R.id.radarimg);
+        radar.getSettings().getJavaScriptEnabled();
+        radar.loadUrl("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ radarState +"/" + radarCity + ".gif?num=6&delay=50&interval=30");
+
         setContentView(R.layout.radar_activity);
     }
 
     public void openForecast(View v) {
         //call fct window
-        // Disable threading. We'll fix this later.
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
         setContentView(R.layout.forecast_activity);
 
         TextView city = (TextView) findViewById(R.id.weatherCity);
         city.setText(inputCity + ", " + inputState);
 
         TextView wind = (TextView) findViewById(R.id.weatherWind);
-        wind.setText(winds + "mph");
+        wind.setText(inputWind + "mph");
 
         TextView rain = (TextView) findViewById(R.id.weatherRain);
-        rain.setText(rains + "%");
+        rain.setText(inputRain + "%");
 
         //Icon code
         String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
