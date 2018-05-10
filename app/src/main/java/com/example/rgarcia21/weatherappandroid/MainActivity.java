@@ -95,18 +95,18 @@ public class MainActivity extends AppCompatActivity {
         try {
             Integer.parseInt(dataType);
         } catch (NumberFormatException e) {
-            String d = dataType;
-            dataType = d.substring(0, d.indexOf(','));
-            dataType = dataType.replaceAll(" ", "_");
+            try {
+                String d = dataType;
+                dataType = d.substring(0, d.indexOf(','));
+                dataType = dataType.replaceAll(" ", "_");
 
-            state = d.substring(d.indexOf(','), d.length());
-            state = state.replaceAll(" ", "");
+                state = d.substring(d.indexOf(','), d.length());
+                state = state.replaceAll(" ", "");
+            }catch (ErrorCatch e1){
+                location.setText("Invalid ZIP");
+            }
         }
-        try{
-            new GetWeatherInBackground().execute(dataType, state);
-        }catch (ErrorCatch e1) {
-            location.setText("Invalid ZIP");
-        }
+        new GetWeatherInBackground().execute(dataType, state);
     }
 
     public void convertActionC(View v) {
