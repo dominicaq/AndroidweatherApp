@@ -82,12 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 location.setText(dataType);//Users input
             }
 
-            try {
-                Button setData = (Button) findViewById(R.id.homebt);
-                setData.performClick();
-            }catch (ErrorCatch e1) {
-                location.setText("Invalid ZIP");
-            }
+            Button setData = (Button) findViewById(R.id.homebt);
+            setData.performClick();
         }
     }
 
@@ -106,7 +102,11 @@ public class MainActivity extends AppCompatActivity {
             state = d.substring(d.indexOf(','), d.length());
             state = state.replaceAll(" ", "");
         }
-        new GetWeatherInBackground().execute(dataType, state);
+        try{
+            new GetWeatherInBackground().execute(dataType, state);
+        }catch (ErrorCatch e1) {
+            location.setText("Invalid ZIP");
+        }
     }
 
     public void convertActionC(View v) {
