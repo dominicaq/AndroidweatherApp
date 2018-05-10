@@ -90,35 +90,26 @@ public class MainActivity extends AppCompatActivity {
     public void getWeather(View v) {
         EditText location = (EditText) findViewById(R.id.searchBar);
         dataType = location.getText().toString();
-        int flag = 0;
 
         //Prevents splitting of a ZIP
         try {
             Integer.parseInt(dataType);
         } catch (NumberFormatException e) {
-            try {
-                String d = dataType;
-                dataType = d.substring(0, d.indexOf(','));
-                dataType = dataType.replaceAll(" ", "_");
+            String d = dataType;
+            dataType = d.substring(0, d.indexOf(','));
+            dataType = dataType.replaceAll(" ", "_");
 
-                state = d.substring(d.indexOf(','), d.length());
-                state = state.replaceAll(" ", "");
-
-                flag = 1;
-            }catch (ErrorCatch e1){
-                location.setText("Invalid ZIP");
-            }
+            state = d.substring(d.indexOf(','), d.length());
+            state = state.replaceAll(" ", "");
         }
-        if (flag == 0) {
-            new GetWeatherInBackground().execute(dataType, state);
-        }
+        new GetWeatherInBackground().execute(dataType, state);
     }
 
     public void convertActionC(View v) {
         String weatherDecimal = inputTempF;
-        int weatherNumber = (int) Double.parseDouble(weatherDecimal);
+        double weatherNumber = Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
-        int convertEquation = (weatherNumber - 32) * 5/9;
+        double convertEquation = (weatherNumber - 32) * 5/9;
         temp.setText(convertEquation + "°");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
