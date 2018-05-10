@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         startupData.performClick();
         location.setText("");
     }
-    //Store values outside method
+    //Store values outside method for future use, only requires 1 fetch
     String radarCity;
     String radarState;
     String inputCity;
@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     String iconCollector;
     String dataType;
     String state;
+    String inputCond;
+    String inputTempF;
+    String inputBigicon;
     int weatherNumber;
 
     private class GetWeatherInBackground extends AsyncTask<String, Void, Conditions>
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Conditions a)
         {
-            //Gather required information for tabs (first execute only)
+            //Gather required information for tabs so we don't refetch when clicking through data
             radarCity = dataType;
             radarState = state;
             inputCity = a.city;
@@ -69,24 +72,27 @@ public class MainActivity extends AppCompatActivity {
             inputFeel = a.feelF;
             inputWind = a.wind;
             inputRain = a.rain;
+            inputCond = a.condition;
+            inputTempF = a.tempF;
+            inputBigicon = a.icon;
             titleList = a.title;
             tempCollector = a.fct;
             iconCollector = a.icon2;
 
-            //Update Screen data
+            //Update Screen data on first fetch
             String weatherDecimal = a.tempF;
             weatherNumber = (int) Double.parseDouble(weatherDecimal);
             TextView temp = (TextView) findViewById(R.id.weatherNumber);
             temp.setText(weatherNumber + "°");
 
             TextView city = (TextView) findViewById(R.id.weatherCity);
-            city.setText(a.city + ", " + a.inputState);
+            city.setText(inputCity + ", " + inputState);
 
             TextView cond = (TextView) findViewById(R.id.weatherCondition);
             cond.setText(a.condition);
 
             TextView feels = (TextView) findViewById(R.id.weatherFeel);
-            feels.setText("| Feels like " + a.feelF + "° (F)");
+            feels.setText("| Feels like " + inputFeel + "° (F)");
 
             String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
             ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
@@ -133,20 +139,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void openHome(View v) {
         //call home
+        String weatherDecimal = inputTempF;
+        weatherNumber = (int) Double.parseDouble(weatherDecimal);
+        TextView temp = (TextView) findViewById(R.id.weatherNumber);
+        temp.setText(weatherNumber + "°");
+
+        TextView city = (TextView) findViewById(R.id.weatherCity);
+        city.setText(inputCity + ", " + inputState);
+
+        TextView cond = (TextView) findViewById(R.id.weatherCondition);
+        cond.setText(inputCond);
+
+        TextView feels = (TextView) findViewById(R.id.weatherFeel);
+        feels.setText("| Feels like " + inputFeel + "° (F)");
+
+        String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
+        ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
+        int imgId = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputBigicon , null, null);
+        weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
+
         setContentView(R.layout.activity_main);
-        EditText location = (EditText) findViewById(R.id.searchBar);
-        if (dataType == "") {
-            location.setText("95648"); //Lincoln, CA
-        }else {
-            location.setText(dataType); //User input
-        }
-        Button startupData = (Button) findViewById(R.id.searchButton);
-        startupData.performClick();
-        location.setText("");
     }
 
     public void openRadar(View v) {
-        //call radar window
+        //call radar window (CRASHES)
         WebView radar = (WebView) findViewById(R.id.radarimg);
         radar.getSettings().getJavaScriptEnabled();
         radar.setWebViewClient(new WebViewClient());
@@ -157,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void openForecast(View v) {
         //call fct window
-        setContentView(R.layout.forecast_activity);
 
         TextView city = (TextView) findViewById(R.id.weatherCity);
         city.setText(inputCity + ", " + inputState);
@@ -217,6 +232,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView forecastImg4 = (ImageView) findViewById(R.id.forecastIcon4);
         int imgId6 = getResources().getIdentifier(PACKAGE_NAME+":drawable/"+ inputAsArray2[4] , null, null);
         forecastImg4.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId6));
+
+        setContentView(R.layout.forecast_activity);
     }
 }
 //API KEY: 1655f919bbcd29ed (for when I need to check something), remove on completion
