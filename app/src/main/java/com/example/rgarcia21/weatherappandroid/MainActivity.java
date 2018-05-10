@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
             iconCollector = a.icon2;
 
             //Update Screen data on first fetch
-            openHome();
+            Button startupData = (Button) findViewById(R.id.homebt);
+            startupData.performClick();
         }
     }
 
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         new GetWeatherInBackground().execute(dataType, state);
     }
 
-    public void convertActionC() {
+    public void convertActionC(View v) {
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
         int convertEquation = (weatherNumber - 32) * 5/9;
         temp.setText(convertEquation + "°");
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         feels.setText("| Feels like " + convertFeel + "° (C)");
     }
 
-    public void convertActionF() {
+    public void convertActionF(View v) {
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
         temp.setText(weatherNumber + "°");
 
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         feels.setText("| Feels like " + inputFeel + "° (F)");
     }
 
-    public void openHome() {
+    public void openHome(View v) {
         //call home
         setContentView(R.layout.activity_main);
 
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
         weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId));
     }
 
-    public void openRadar() {
+    public void openRadar(View v) {
         //call radar window
         setContentView(R.layout.radar_activity);
 
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         radar.loadUrl("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ radarState + "/" + radarCity + ".gif?num=6&delay=50&interval=30");
     }
 
-    public void openForecast() {
+    public void openForecast(View v) {
         //call fct window
         setContentView(R.layout.forecast_activity);
 
