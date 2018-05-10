@@ -106,17 +106,27 @@ public class MainActivity extends AppCompatActivity {
         EditText location = (EditText) findViewById(R.id.searchBar);
         dataType = location.getText().toString();
 
+        //There's prob a much better way to do this
+        int flag = 0;
         try {
             Integer.parseInt(dataType);
         } catch (NumberFormatException e) {
+            flag = 1;
+        }
+
+        if ( flag == 1){
             String d = dataType;
             dataType = d.substring(0, d.indexOf(','));
             dataType = dataType.replaceAll(" ", "_");
 
             state = d.substring(d.indexOf(','), d.length());
             state = state.replaceAll(" ", "");
+            new GetWeatherInBackground().execute(dataType, state);
         }
-        new GetWeatherInBackground().execute(dataType, state);
+        else{
+            new GetWeatherInBackground().execute(dataType);
+        }
+
     }
 
     public void convertActionC(View convertC) {
@@ -140,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
     public void openHome(View v) {
         //call home
         setContentView(R.layout.activity_main);
-        
+
         String weatherDecimal = inputTempF;
         weatherNumber = (int) Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
@@ -162,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openRadar(View v) {
-        //call radar window (CRASHES)
+        //call radar window
         setContentView(R.layout.radar_activity);
 
         WebView radar = (WebView) findViewById(R.id.radarimg);
