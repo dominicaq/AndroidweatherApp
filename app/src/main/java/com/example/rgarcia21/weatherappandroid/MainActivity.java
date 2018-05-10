@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         location.setText("");
     }
     //Store values outside method for future use, only requires 1 fetch
-    String radarCity;
-    String radarState;
     String inputCity;
     String inputState;
     String inputFeel;
@@ -65,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Conditions a)
         {
             //Gather required information for tabs so we don't refetch when clicking through them
-            radarCity = dataType;
-            radarState = state;
             inputCity = a.city;
             inputState = a.inputState;
             inputFeel = a.feelF;
@@ -80,15 +76,21 @@ public class MainActivity extends AppCompatActivity {
             iconCollector = a.icon2;
 
             //Update Screen data on first fetch
-            Button startupData = (Button) findViewById(R.id.homebt);
-            startupData.performClick();
+            EditText location = (EditText) findViewById(R.id.searchBar);
+            dataType = location.getText().toString();
+            if (dataType == null){
+                location.setText("95648"); //Lincoln, CA
+            }else{
+                location.setText(dataType);//Users input
+            }
+            Button setData = (Button) findViewById(R.id.homebt);
+            setData.performClick();
         }
     }
 
 
     public void getWeather(View v) {
         EditText location = (EditText) findViewById(R.id.searchBar);
-        dataType = location.getText().toString();
 
         //Prevents splitting of a ZIP
         try {
@@ -156,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         WebView radar = (WebView) findViewById(R.id.radarimg);
         radar.getSettings().getJavaScriptEnabled();
         radar.setWebViewClient(new WebViewClient());
-        radar.loadUrl("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ radarState + "/" + radarCity + ".gif?num=6&delay=50&interval=30");
+        radar.loadUrl("http://api.wunderground.com/api/"+ BuildConfig.ApiKey +"/animatedradar/animatedsatellite/q/"+ inputState + "/" + inputCity + ".gif?num=6&delay=50&interval=30");
     }
 
     public void openForecast(View v) {
