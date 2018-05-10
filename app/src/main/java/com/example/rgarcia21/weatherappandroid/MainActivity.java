@@ -77,12 +77,12 @@ public class MainActivity extends AppCompatActivity {
 
             //Update Screen data on first fetch
             EditText location = (EditText) findViewById(R.id.searchBar);
-            dataType = location.getText().toString();
-            if (dataType == null){
+            if (location.getText() == null){
                 location.setText("95648"); //Lincoln, CA
             }else{
                 location.setText(dataType);//Users input
             }
+            
             Button setData = (Button) findViewById(R.id.homebt);
             setData.performClick();
         }
@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getWeather(View v) {
         EditText location = (EditText) findViewById(R.id.searchBar);
+        dataType = location.getText().toString();
 
         //Prevents splitting of a ZIP
         try {
