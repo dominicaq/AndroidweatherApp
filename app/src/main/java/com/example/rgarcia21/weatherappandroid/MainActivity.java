@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Conditions doInBackground(String... locations)
         {
-            Weather b = new Weather(locations[0]);
+            Weather b = new Weather(locations[0],locations[1]);
             Conditions c = b.getCond();
 
             return c;
@@ -106,27 +106,18 @@ public class MainActivity extends AppCompatActivity {
         EditText location = (EditText) findViewById(R.id.searchBar);
         dataType = location.getText().toString();
 
-        //There's prob a much better way to do this
-        int flag = 0;
+        //Prevents splitting of a ZIP
         try {
             Integer.parseInt(dataType);
         } catch (NumberFormatException e) {
-            flag = 1;
-        }
-
-        if ( flag == 1){
             String d = dataType;
             dataType = d.substring(0, d.indexOf(','));
             dataType = dataType.replaceAll(" ", "_");
 
             state = d.substring(d.indexOf(','), d.length());
             state = state.replaceAll(" ", "");
-            new GetWeatherInBackground().execute(dataType, state);
         }
-        else{
-            new GetWeatherInBackground().execute(dataType);
-        }
-
+        new GetWeatherInBackground().execute(dataType, state);
     }
 
     public void convertActionC(View convertC) {
