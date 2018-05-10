@@ -119,8 +119,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void convertActionF(View v) {
+        String weatherDecimal = inputTempF;
+        int weatherNumber = (int) Double.parseDouble(weatherDecimal);
         TextView temp = (TextView) findViewById(R.id.weatherNumber);
-        temp.setText(inputTempF + "°");
+        temp.setText(weatherNumber + "°");
 
         TextView feels = (TextView) findViewById(R.id.weatherFeel);
         feels.setText("| Feels like " + inputFeel + "° (F)");
