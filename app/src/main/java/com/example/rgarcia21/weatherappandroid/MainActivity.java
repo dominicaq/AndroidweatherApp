@@ -107,10 +107,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getWeatherButton(View v){
+        EditText location = (EditText) findViewById(R.id.searchBar);
+        if (location.getText() == null){
+            Toast toast2 = Toast.makeText(getApplicationContext(), "Please enter Input", Toast.LENGTH_SHORT);
+            toast2.show();
+        }
+
         try {
             getWeather();
         }
-        catch (NumberFormatException e)
+        catch (ErrorCatch e)
         {
             Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT);
             toast1.show();
