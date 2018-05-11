@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         startupData.performClick();
         location.setText("");
     }
+
+    Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
     //Store values outside method for future use, only requires 1 fetch
     String dataType;
     String state;
@@ -99,11 +101,14 @@ public class MainActivity extends AppCompatActivity {
             state.replaceAll(" +", " ");
             state = state.replaceAll(" ", "");
         }
-        new GetWeatherInBackground().execute(dataType, state);
+        try {
+            new GetWeatherInBackground().execute(dataType, state);
+        } catch(ErrorCatch e){
+            toast1.show();
+        }
     }
 
     public void getWeatherButton(View v){
-        Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
 
         EditText location = (EditText) findViewById(R.id.searchBar);
         if (location.getText().toString().equals("")){
