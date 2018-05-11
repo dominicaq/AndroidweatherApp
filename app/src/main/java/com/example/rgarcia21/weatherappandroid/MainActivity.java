@@ -87,17 +87,19 @@ public class MainActivity extends AppCompatActivity {
         dataType = location.getText().toString();
 
         //Prevents splitting of a ZIP
-        try {
-            Integer.parseInt(dataType);
-        } catch (NumberFormatException e) {
+        if (dataType.matches("\\\\d+")){
+            dataType.replaceAll(" ", "");
+        }
+        else{
             String d = dataType;
             dataType = d.substring(0, d.indexOf(','));
             dataType.replaceAll(" +", " "); //removes extra spaces
-            dataType = dataType.replaceAll(" ", "_");
+            dataType.replaceAll(" ", "_"); //prep for url usage
 
             state = d.substring(d.indexOf(','), d.length());
-            state = state.replaceAll(" ", "");
+            state.replaceAll(" ", "");
         }
+
         new GetWeatherInBackground().execute(dataType, state);
     }
 
