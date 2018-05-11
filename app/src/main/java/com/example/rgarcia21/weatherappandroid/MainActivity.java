@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
             dataType = dataType.replaceAll(" ", "_");
 
             state = d.substring(d.indexOf(','), d.length());
-            state.replaceAll(" +", " ");
             state = state.replaceAll(" ", "");
         }
         new GetWeatherInBackground().execute(dataType, state);
