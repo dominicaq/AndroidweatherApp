@@ -87,10 +87,9 @@ public class MainActivity extends AppCompatActivity {
         dataType = location.getText().toString();
 
         //Prevents splitting of a ZIP
-        if (dataType.matches("\\\\d+")){
-            dataType.replaceAll(" ", "");
-        }
-        else{
+        try {
+            Integer.parseInt(dataType);
+        } catch (NumberFormatException e) {
             String d = dataType;
             dataType = d.substring(0, d.indexOf(','));
             dataType.replaceAll(" +", " "); //removes extra spaces
