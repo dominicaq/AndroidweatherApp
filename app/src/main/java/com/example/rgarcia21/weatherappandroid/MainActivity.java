@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 toast1.show();
             }
-            catch (ErrorCatch e2)
+            catch (RuntimeException e2)
             {
                 toast1.show();
             }
