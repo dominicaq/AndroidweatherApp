@@ -92,10 +92,12 @@ public class MainActivity extends AppCompatActivity {
         } catch (NumberFormatException e) {
             String d = dataType;
             dataType = d.substring(0, d.indexOf(','));
-            dataType = dataType.replaceAll("\\\\s+", "_");
+            dataType.replaceAll(" +", " "); //removes extra spaces
+            dataType = dataType.replaceAll(" ", "_");
 
             state = d.substring(d.indexOf(','), d.length());
-            state = state.replaceAll("\\\\s+", "");
+            state.replaceAll(" +", " ");
+            state = state.replaceAll(" ", "");
         }
         new GetWeatherInBackground().execute(dataType, state);
     }
@@ -109,9 +111,9 @@ public class MainActivity extends AppCompatActivity {
             try {
                 getWeather();
             }
-            catch (ErrorCatch e)
+            catch (StringIndexOutOfBoundsException e)
             {
-                Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT);
+                Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
                 toast1.show();
             }
         }
