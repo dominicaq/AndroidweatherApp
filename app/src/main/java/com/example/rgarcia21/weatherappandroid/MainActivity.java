@@ -77,12 +77,6 @@ public class MainActivity extends AppCompatActivity {
             iconCollector = a.icon2;
 
             //Update Screen data on first fetch
-            EditText location = (EditText) findViewById(R.id.searchBar);
-            if (location.getText() == null){
-                location.setText("95648"); //Lincoln, CA
-            }else{
-                location.setText(dataType);//Users input
-            }
             Button setData = (Button) findViewById(R.id.homebt);
             setData.performClick();
         }
@@ -111,15 +105,15 @@ public class MainActivity extends AppCompatActivity {
         if (location.getText() == null){
             Toast toast2 = Toast.makeText(getApplicationContext(), "Please enter Input", Toast.LENGTH_SHORT);
             toast2.show();
-        }
-
-        try {
-            getWeather();
-        }
-        catch (ErrorCatch e)
-        {
-            Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT);
-            toast1.show();
+        } else{
+            try {
+                getWeather();
+            }
+            catch (ErrorCatch e)
+            {
+                Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT);
+                toast1.show();
+            }
         }
     }
 
