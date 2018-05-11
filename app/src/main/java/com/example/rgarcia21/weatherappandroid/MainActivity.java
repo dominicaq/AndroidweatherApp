@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         location.setText("");
     }
     //Store values outside method for future use, only requires 1 fetch
+    String dataType;
+    String state;
+
     String inputCity;
     String inputState;
     String inputFeel;
@@ -41,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
     String titleList;
     String tempCollector;
     String iconCollector;
-    String dataType;
-    String state;
     String inputCond;
     String inputTempF;
     String inputBigicon;
@@ -81,13 +83,12 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 location.setText(dataType);//Users input
             }
-
             Button setData = (Button) findViewById(R.id.homebt);
             setData.performClick();
         }
     }
 
-    public void getWeather(View v) {
+    public void getWeather() {
         EditText location = (EditText) findViewById(R.id.searchBar);
         dataType = location.getText().toString();
 
@@ -97,12 +98,23 @@ public class MainActivity extends AppCompatActivity {
         } catch (NumberFormatException e) {
             String d = dataType;
             dataType = d.substring(0, d.indexOf(','));
-            dataType = dataType.replaceAll(" ", "_");
+            dataType = dataType.replaceAll("\\\\s+", "_");
 
             state = d.substring(d.indexOf(','), d.length());
-            state = state.replaceAll(" ", "");
+            state = state.replaceAll("\\\\s+", "");
         }
         new GetWeatherInBackground().execute(dataType, state);
+    }
+
+    public void getWeatherButton(View v){
+        try {
+            getWeather();
+        }
+        catch (NumberFormatException e)
+        {
+            Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT);
+            toast1.show();
+        }
     }
 
     public void convertActionC(View v) {
