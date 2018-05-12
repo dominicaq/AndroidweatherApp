@@ -114,18 +114,18 @@ public class MainActivity extends AppCompatActivity {
         EditText location = (EditText) findViewById(R.id.searchBar);
         if(checkInvalid == "yes"){
             toast1.show();
-        }else {
-            if (location.getText().toString().equals("")) {
+        }
+        else if (location.getText().toString().equals("")) {
                 Toast toast2 = Toast.makeText(getApplicationContext(), "Please enter Input", Toast.LENGTH_SHORT);
                 toast2.show();
-            } else {
+            }
+            else {
                 try {
                     getWeather();
                 } catch (StringIndexOutOfBoundsException e) {
                     toast1.show();
                 }
             }
-        }
     }
 
     public void convertActionC(View v) {
