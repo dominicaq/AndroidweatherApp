@@ -80,8 +80,13 @@ public class MainActivity extends AppCompatActivity {
             tempCollector = a.fct;
             iconCollector = a.icon2;
             //Update Screen data on fetch
-            Button setData = (Button) findViewById(R.id.homebt);
-            setData.performClick();
+            if (checkInvalid != null){
+                Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid ZIP", Toast.LENGTH_SHORT);
+                toast1.show();
+            } else {
+                Button setData = (Button) findViewById(R.id.homebt);
+                setData.performClick();
+            }
         }
 
     }
@@ -109,11 +114,7 @@ public class MainActivity extends AppCompatActivity {
     public void getWeatherButton(View v){
         EditText location = (EditText) findViewById(R.id.searchBar);
 
-        if (checkInvalid != null){
-            Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid ZIP", Toast.LENGTH_SHORT);
-            toast1.show();
-        }
-        else if (location.getText().toString().equals("")){
+        if (location.getText().toString().equals("")){
             Toast toast2 = Toast.makeText(getApplicationContext(), "Please enter Input", Toast.LENGTH_SHORT);
             toast2.show();
         }
