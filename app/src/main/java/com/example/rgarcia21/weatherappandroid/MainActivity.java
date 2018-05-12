@@ -109,7 +109,11 @@ public class MainActivity extends AppCompatActivity {
     public void getWeatherButton(View v){
         EditText location = (EditText) findViewById(R.id.searchBar);
 
-        if (location.getText().toString().equals("")){
+        if (checkInvalid != null){
+            Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid ZIP", Toast.LENGTH_SHORT);
+            toast1.show();
+        }
+        else if (location.getText().toString().equals("")){
             Toast toast2 = Toast.makeText(getApplicationContext(), "Please enter Input", Toast.LENGTH_SHORT);
             toast2.show();
         }
@@ -164,30 +168,24 @@ public class MainActivity extends AppCompatActivity {
         //call home
         setContentView(R.layout.activity_main);
 
-        if (checkInvalid =="querynotfound"){
-            Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid ZIP", Toast.LENGTH_SHORT);
-            toast1.show();
-        }
-        else {
-            String weatherDecimal = inputTempF;
-            int weatherNumber = (int) Double.parseDouble(weatherDecimal);
-            TextView temp = (TextView) findViewById(R.id.weatherNumber);
-            temp.setText(weatherNumber + "°");
+        String weatherDecimal = inputTempF;
+        int weatherNumber = (int) Double.parseDouble(weatherDecimal);
+        TextView temp = (TextView) findViewById(R.id.weatherNumber);
+        temp.setText(weatherNumber + "°");
 
-            TextView city = (TextView) findViewById(R.id.weatherCity);
-            city.setText(inputCity + ", " + inputState);
+        TextView city = (TextView) findViewById(R.id.weatherCity);
+        city.setText(inputCity + ", " + inputState);
 
-            TextView cond = (TextView) findViewById(R.id.weatherCondition);
-            cond.setText(inputCond + " |");
+        TextView cond = (TextView) findViewById(R.id.weatherCondition);
+        cond.setText(inputCond + " |");
 
-            TextView feels = (TextView) findViewById(R.id.weatherFeel);
-            feels.setText("| Feels like " + inputFeel + "° (F)");
+        TextView feels = (TextView) findViewById(R.id.weatherFeel);
+        feels.setText("| Feels like " + inputFeel + "° (F)");
 
-            String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
-            ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
-            int imgId = getResources().getIdentifier(PACKAGE_NAME + ":drawable/" + inputBigicon, null, null);
-            weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), imgId));
-        }
+        String PACKAGE_NAME = getApplicationContext().getPackageName(); //Used for all dynamic icons
+        ImageView weatherIcon = (ImageView) findViewById(R.id.weatherImage);
+        int imgId = getResources().getIdentifier(PACKAGE_NAME + ":drawable/" + inputBigicon, null, null);
+        weatherIcon.setImageBitmap(BitmapFactory.decodeResource(getResources(), imgId));
     }
 
     public void openRadar(View v) {
