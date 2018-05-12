@@ -71,17 +71,21 @@ public class MainActivity extends AppCompatActivity {
             if(checkInvalid == "querynotfound"){
                 checkInvalid = "INVALID";
             } else {
-                inputCity = a.city;
-                inputState = a.inputState;
-                inputFeel = a.feelF;
-                inputWind = a.wind;
-                inputRain = a.rain;
-                inputCond = a.condition;
-                inputTempF = a.tempF;
-                inputBigicon = a.icon;
-                titleList = a.title;
-                tempCollector = a.fct;
-                iconCollector = a.icon2;
+                if (inputCity == "null") {
+                //Nothing happens
+                } else {
+                    inputCity = a.city;
+                    inputState = a.inputState;
+                    inputFeel = a.feelF;
+                    inputWind = a.wind;
+                    inputRain = a.rain;
+                    inputCond = a.condition;
+                    inputTempF = a.tempF;
+                    inputBigicon = a.icon;
+                    titleList = a.title;
+                    tempCollector = a.fct;
+                    iconCollector = a.icon2;
+                }
             }
             //Update Screen data on fetch
             Button setData = (Button) findViewById(R.id.homebt);
