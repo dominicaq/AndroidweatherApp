@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             checkInvalid = a.checkInvalid;
 
             //If user input is invalid, keep data that is valid
-            if(checkInvalid.equals("querynotfound")){
+            if(checkInvalid == "querynotfound"){
                 Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
                 toast1.show();
             } else {
@@ -84,11 +84,10 @@ public class MainActivity extends AppCompatActivity {
                 tempCollector = a.fct;
                 iconCollector = a.icon2;
                 checkInvalid = a.checkInvalid;
-
-                //Update Screen data on first fetch
-                Button setData = (Button) findViewById(R.id.homebt);
-                setData.performClick();
             }
+            //Update Screen data on fetch
+            Button setData = (Button) findViewById(R.id.homebt);
+            setData.performClick();
         }
     }
 
