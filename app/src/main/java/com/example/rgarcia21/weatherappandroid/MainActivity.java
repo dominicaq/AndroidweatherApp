@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             //If user input is invalid, keep data that is valid
             if(checkInvalid == "querynotfound"){
                 checkInvalid = "INVALID";
-            } else if (inputCity != "null") {
+            } else if (inputTempF != null) {
                     inputCity = a.city;
                     inputState = a.inputState;
                     inputFeel = a.feelF;
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     setData.performClick();
                 }
         }
-        
+
     }
 
     public void getWeather() {
