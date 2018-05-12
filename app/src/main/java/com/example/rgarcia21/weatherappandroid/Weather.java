@@ -13,6 +13,7 @@ public class Weather {
     private JsonElement jse;
     private String city;
     private String state;
+    private String checkInvalid = "";
 
 
     // Constructor
@@ -53,10 +54,12 @@ public class Weather {
 
             return c;
         }
-
         catch(NullPointerException e)
         {
-            throw new ErrorCatch();
+            checkInvalid = jse.getAsJsonObject().get("response").getAsJsonObject().get("error").getAsJsonObject().get("type").getAsString();
+            Conditions c = new Conditions(checkInvalid);
+            System.out.println(checkInvalid);
+            return c;
         }
     }
 
@@ -78,11 +81,7 @@ public class Weather {
             fore += f + " ";
 
             //System.out.println(fore);
-
-
         }
-
-
         return fore;
     }
 
@@ -91,25 +90,23 @@ public class Weather {
     public String getForecastAfter(String nameObj) {
 
         fetchData();
-        JsonArray fcArray = jse.getAsJsonObject()
-                .get("forecast").getAsJsonObject()
-                .get("txt_forecast").getAsJsonObject()
-                .get("forecastday").getAsJsonArray();
+        if(checkInvalid.equals("querynotfound")){
+            return checkInvalid;
+        }else {
+            JsonArray fcArray = jse.getAsJsonObject()
+                    .get("forecast").getAsJsonObject()
+                    .get("txt_forecast").getAsJsonObject()
+                    .get("forecastday").getAsJsonArray();
 
+            String fore = "";
 
-        String fore = "";
+            for (int i = 2; i < fcArray.size() - 8; i += 2) {
+                String f = fcArray.get(i).getAsJsonObject().get(nameObj).getAsString();
 
-
-        for (int i = 2; i < fcArray.size() - 8; i += 2) {
-            String f = fcArray.get(i).getAsJsonObject().get(nameObj).getAsString();
-
-            fore += f + " ";
-
-
+                fore += f + " ";
+            }
+            return fore;
         }
-
-
-        return fore;
     }
     public String getForecastAfter2(String nameObj) {
 
@@ -167,11 +164,9 @@ public class Weather {
 
     }
 
-
-
     public static void main(String[] args){
-        String zip = "91911";
-        String cit = "San Diego";
+        String zip = "95648";
+        String cit = "San_Diego";
         String sta = "CA";
         Weather w = new Weather(zip);
 

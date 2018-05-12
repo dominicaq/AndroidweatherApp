@@ -17,10 +17,7 @@ public class Conditions {
     String icon2;
     String fct;
     String inputState;
-
-
-
-
+    String checkInvalid;
 
 
     public Conditions(String latitude, String longitude, String city, String tempF, String tempC, String feelC, String feelF,
@@ -41,9 +38,10 @@ public class Conditions {
         this.icon2 = icon2;
         this.fct = fct;
         this.inputState = inputState;
+    }
 
-
-
+    public Conditions(String checkInvalid){
+        this.checkInvalid = checkInvalid;
     }
 
 }
