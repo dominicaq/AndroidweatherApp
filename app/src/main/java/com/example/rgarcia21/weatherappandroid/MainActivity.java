@@ -68,24 +68,22 @@ public class MainActivity extends AppCompatActivity {
             checkInvalid = a.checkInvalid;
 
             //If user input is invalid, keep data that is valid
-            if(checkInvalid == "querynotfound"){
-                checkInvalid = "INVALID";
-            } else if (inputTempF != null) {
-                    inputCity = a.city;
-                    inputState = a.inputState;
-                    inputFeel = a.feelF;
-                    inputWind = a.wind;
-                    inputRain = a.rain;
-                    inputCond = a.condition;
-                    inputTempF = a.tempF;
-                    inputBigicon = a.icon;
-                    titleList = a.title;
-                    tempCollector = a.fct;
-                    iconCollector = a.icon2;
-                    //Update Screen data on fetch
-                    Button setData = (Button) findViewById(R.id.homebt);
-                    setData.performClick();
-                }
+            if(checkInvalid != "querynotfound"){
+                inputCity = a.city;
+                inputState = a.inputState;
+                inputFeel = a.feelF;
+                inputWind = a.wind;
+                inputRain = a.rain;
+                inputCond = a.condition;
+                inputTempF = a.tempF;
+                inputBigicon = a.icon;
+                titleList = a.title;
+                tempCollector = a.fct;
+                iconCollector = a.icon2;
+                //Update Screen data on fetch
+                Button setData = (Button) findViewById(R.id.homebt);
+                setData.performClick();
+            }
         }
 
     }
@@ -114,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         EditText location = (EditText) findViewById(R.id.searchBar);
         Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
 
-        if(checkInvalid == "INVALID"){
+        if(checkInvalid == "querynotfound"){
             toast1.show();
         }
         else if (location.getText().toString().equals("")){
