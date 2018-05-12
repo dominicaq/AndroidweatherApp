@@ -110,22 +110,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getWeatherButton(View v){
-        Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
         EditText location = (EditText) findViewById(R.id.searchBar);
-        if(checkInvalid == "yes"){
+        Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
+
+        if(checkInvalid == "INVALID"){
             toast1.show();
         }
-        else if (location.getText().toString().equals("")) {
-                Toast toast2 = Toast.makeText(getApplicationContext(), "Please enter Input", Toast.LENGTH_SHORT);
-                toast2.show();
+        else if (location.getText().toString().equals("")){
+            Toast toast2 = Toast.makeText(getApplicationContext(), "Please enter Input", Toast.LENGTH_SHORT);
+            toast2.show();
+        }
+        else {
+            try {
+                getWeather();
             }
-            else {
-                try {
-                    getWeather();
-                } catch (StringIndexOutOfBoundsException e) {
-                    toast1.show();
-                }
+            catch (StringIndexOutOfBoundsException e)
+            {
+                toast1.show();
             }
+        }
     }
 
     public void convertActionC(View v) {
