@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
     String inputCond;
     String inputTempF;
     String inputBigicon;
+    String checkInvalid;
+
+    Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
 
     private class GetWeatherInBackground extends AsyncTask<String, Void, Conditions>
     {
@@ -64,21 +67,29 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Conditions a)
         {
             //Gather required information for tabs so we don't refetch when clicking through them
-            inputCity = a.city;
-            inputState = a.inputState;
-            inputFeel = a.feelF;
-            inputWind = a.wind;
-            inputRain = a.rain;
-            inputCond = a.condition;
-            inputTempF = a.tempF;
-            inputBigicon = a.icon;
-            titleList = a.title;
-            tempCollector = a.fct;
-            iconCollector = a.icon2;
+            checkInvalid = a.checkInvalid;
 
-            //Update Screen data on first fetch
-            Button setData = (Button) findViewById(R.id.homebt);
-            setData.performClick();
+            //If user input is invalid, keep data that is valid
+            if(checkInvalid.equals("querynotfound")){
+                toast1.show();
+            } else {
+                inputCity = a.city;
+                inputState = a.inputState;
+                inputFeel = a.feelF;
+                inputWind = a.wind;
+                inputRain = a.rain;
+                inputCond = a.condition;
+                inputTempF = a.tempF;
+                inputBigicon = a.icon;
+                titleList = a.title;
+                tempCollector = a.fct;
+                iconCollector = a.icon2;
+                checkInvalid = a.checkInvalid;
+
+                //Update Screen data on first fetch
+                Button setData = (Button) findViewById(R.id.homebt);
+                setData.performClick();
+            }
         }
     }
 
@@ -103,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getWeatherButton(View v){
-        Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
 
         EditText location = (EditText) findViewById(R.id.searchBar);
         if (location.getText().toString().equals("")){
