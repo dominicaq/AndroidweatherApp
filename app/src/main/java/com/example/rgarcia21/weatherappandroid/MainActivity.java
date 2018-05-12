@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
     String inputBigicon;
     String checkInvalid;
 
-    Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
-
     private class GetWeatherInBackground extends AsyncTask<String, Void, Conditions>
     {
         @Override
@@ -71,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             //If user input is invalid, keep data that is valid
             if(checkInvalid.equals("querynotfound")){
+                Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
                 toast1.show();
             } else {
                 inputCity = a.city;
@@ -125,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             }
             catch (StringIndexOutOfBoundsException e)
             {
+                Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
                 toast1.show();
             }
         }
