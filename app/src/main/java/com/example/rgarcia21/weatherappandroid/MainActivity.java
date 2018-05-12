@@ -70,10 +70,7 @@ public class MainActivity extends AppCompatActivity {
             //If user input is invalid, keep data that is valid
             if(checkInvalid == "querynotfound"){
                 checkInvalid = "INVALID";
-            } else {
-                if (inputCity == "null") {
-                //Nothing happens
-                } else {
+            } else if (inputCity != "null") {
                     inputCity = a.city;
                     inputState = a.inputState;
                     inputFeel = a.feelF;
@@ -85,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
                     titleList = a.title;
                     tempCollector = a.fct;
                     iconCollector = a.icon2;
+                    //Update Screen data on fetch
+                    Button setData = (Button) findViewById(R.id.homebt);
+                    setData.performClick();
                 }
-            }
-            //Update Screen data on fetch
-            Button setData = (Button) findViewById(R.id.homebt);
-            setData.performClick();
         }
+        
     }
 
     public void getWeather() {
