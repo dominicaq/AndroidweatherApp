@@ -58,7 +58,6 @@ public class Weather {
         {
             checkInvalid = jse.getAsJsonObject().get("response").getAsJsonObject().get("error").getAsJsonObject().get("type").getAsString();
             Conditions c = new Conditions(checkInvalid);
-            System.out.println(checkInvalid);
             return c;
         }
     }
@@ -90,7 +89,7 @@ public class Weather {
     public String getForecastAfter(String nameObj) {
 
         fetchData();
-        if(checkInvalid.equals("querynotfound")){
+        if(checkInvalid != null){
             return checkInvalid;
         }else {
             JsonArray fcArray = jse.getAsJsonObject()
