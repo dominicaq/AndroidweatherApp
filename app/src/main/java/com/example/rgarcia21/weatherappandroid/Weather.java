@@ -89,7 +89,7 @@ public class Weather {
     public String getForecastAfter(String nameObj) {
 
         fetchData();
-        if(checkInvalid != null){
+        if(checkInvalid.equals("querynotfound")){
             return checkInvalid;
         }else {
             JsonArray fcArray = jse.getAsJsonObject()
