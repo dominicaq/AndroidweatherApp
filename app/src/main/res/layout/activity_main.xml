@@ -71,8 +71,8 @@
         android:id="@+id/fBut"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="70dp"
-        android:layout_marginStart="236dp"
+        android:layout_marginBottom="105dp"
+        android:layout_marginStart="4dp"
         android:background="@drawable/box"
         android:onClick="convertActionF"
         android:text="°F"
@@ -80,7 +80,7 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/weatherNumber" />
 
     <TextView
         android:id="@+id/weatherNumber"
@@ -88,8 +88,8 @@
         android:layout_height="113dp"
         android:layout_marginBottom="35dp"
         android:layout_marginStart="8dp"
-        android:text="@string/_86"
-        android:textAlignment="textStart"
+        android:text="86°"
+        android:textAlignment="viewStart"
         android:textColor="@android:color/white"
         android:textSize="100sp"
         android:textStyle="bold"
@@ -119,7 +119,7 @@
         android:text="Rocklin, CA"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="40sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,11 +129,10 @@
         android:id="@+id/weatherImage"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginStart="145dp"
+        android:layout_marginBottom="16dp"
         android:contentDescription="@string/weather_image"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/weatherNumber"
         app:srcCompat="@drawable/clear" />
 
     <Button
@@ -169,11 +168,11 @@
         android:id="@+id/weatherCondition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="2dp"
         android:layout_marginStart="10dp"
         android:text="Clear |"
         android:textColor="@android:color/white"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -181,8 +180,7 @@
         android:id="@+id/cBut"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="70dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginBottom="105dp"
         android:background="@drawable/box"
         android:onClick="convertActionC"
         android:text="°C"
@@ -196,13 +194,14 @@
         android:id="@+id/textView"
         android:layout_width="5dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="104dp"
         android:text="|"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cBut"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toEndOf="@+id/fBut" />
 
 </android.support.constraint.ConstraintLayout>

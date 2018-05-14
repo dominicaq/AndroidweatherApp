@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         EditText location = (EditText) findViewById(R.id.searchBar);
-        location.setText("95648"); //Lincoln, CA
+        location.setText("94105"); //San Francisco, CA
         Button startupData = (Button) findViewById(R.id.searchButton);
         startupData.performClick();
         location.setText("");
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
             //If user input is invalid, keep data that is valid
             if (checkInvalid != null){
-                Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid ZIP", Toast.LENGTH_SHORT);
+                Toast toast1 = Toast.makeText(getApplicationContext(), "Invalid Input", Toast.LENGTH_SHORT);
                 toast1.show();
             } else {
                 inputCity = a.city;
@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
                 tempCollector = a.fct;
                 iconCollector = a.icon2;
             }
-            //Update Screen data on fetch
 
+            //Update Screen data on fetch
             Button setData = (Button) findViewById(R.id.homebt);
             setData.performClick();
         }
@@ -260,4 +260,3 @@ public class MainActivity extends AppCompatActivity {
         forecastImg4.setImageBitmap(BitmapFactory.decodeResource(getResources(),imgId6));
     }
 }
-//API KEY: 1655f919bbcd29ed (for when I need to check something), remove on completion

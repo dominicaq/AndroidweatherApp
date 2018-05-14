@@ -114,7 +114,7 @@
         android:id="@+id/radarimg"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
