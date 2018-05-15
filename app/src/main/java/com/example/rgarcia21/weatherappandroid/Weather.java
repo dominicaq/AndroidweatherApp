@@ -165,9 +165,9 @@ public class Weather {
 
     public static void main(String[] args){
         String zip = "95648";
-        String cit = "San_Diego";
-        String sta = "CA";
-        Weather w = new Weather(zip);
+        String cit = "Atlanta";
+        String sta = "GA";
+        Weather w = new Weather(cit, sta);
 
         //System.out.println(w.getForecastTomorrow("high"));
 
