@@ -3,8 +3,9 @@ This project was our final and was imported from [**BitBucket**](https://bitbuck
   1. Android Studio
   2. Pull, sort, and use JSON files from an API
   3. How to properly fetch data on mobile devices without freezing the user
-  4. Working with a team in git
-  5. Working and sharing data with multiple activies in one pull
+  4. Working and sharing data with multiple activies in a single fetch
+  5. Working with a team in git
+  6. How to use branches in git
 
 ### Created By: Dominic Quintero & Rigo Garcia 2018
 
