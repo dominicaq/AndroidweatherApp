@@ -7,4 +7,4 @@ This project was our final and was imported from [**BitBucket**](https://bitbuck
 
 ### Created By: Dominic Quintero & Rigo Garcia 2018
 
-API used: [**Weather Underground**](https://www.wunderground.com/weather/api/)
+API used: [**Weather Underground**](https://www.wunderground.com/weather/api/) (Keys are no longer free)
