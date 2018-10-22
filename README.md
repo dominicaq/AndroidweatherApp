@@ -1,4 +1,4 @@
-# Student Project
+# Weather Application
 This project was our final and was imported from [**BitBucket**](https://bitbucket.org/), the end outcome taught us the following:
   1. Android Studio
   2. Pull, sort, and use JSON data from an API
